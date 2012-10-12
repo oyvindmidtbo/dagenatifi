@@ -1,10 +1,12 @@
-#normalText {
+#textToMatch {
 	font-weight: bold;
 	font-size: 20px;
 }
 
 #greenText {
-	font-weight: bold;
-	font-size: 20px;
-	color: green;
+	background-color: green;
+}
+
+#redText {
+	background-color: red;
 }
