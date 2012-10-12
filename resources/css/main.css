@@ -1,0 +1,10 @@
+#normalText {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#greenText {
+	font-weight: bold;
+	font-size: 20px;
+	color: green;
+}
