@@ -6,6 +6,7 @@ $(document).ready(function() {
 	$("#normalText").text(textToMatch);
 	$(document).keypress(function(event) {
   		checkInputText(event);
+  		updatePoints();
 	}); 	
 });
 
@@ -52,4 +53,8 @@ function checkInputText(keyEvent) {
 		}
 	}
 	console.log("keyPressed: " + keyPressed);
+}
+
+function updatePoints() {
+	$("#numberOfPoints").text(correctCharacters);
 }
