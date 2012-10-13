@@ -5,7 +5,10 @@
 		<title>Skrivekonkurranse på dagen@ifi</title>
 		
 		<link rel="stylesheet" href="resources/css/main.css" type="text/css" media="screen" charset="utf-8">
+		<link rel="stylesheet" href="resources/css/external/basic.css" type="text/css" media="screen" charset="utf-8">
 		<script type="text/javascript" src="resources/js/external/jquery-1.8.2.js"></script>
+		<script type="text/javascript" src="resources/js/external/basic.js"></script>
+		<script type="text/javascript" src="resources/js/external/jquery.simplemodal.js"></script>
 		<script type="text/javascript" src="resources/js/input.js"></script>
 	</head>
 	<header>
@@ -39,4 +42,13 @@
 			<span>Sekunder igjen: </span><span id="timeLeft">30</span>
 		</div>
 	</section>	
+
+	<div id="contactForm">
+		Gratulerer! Du fikk <span id="finalPoints"></span> poeng!
+		<br />
+		Skriv inn din kontaktinformasjon:
+		<br />
+		<label>Navn: </label><input id="name" type="text">
+		<label>Telefonnummer: </label><input id="phonenumber" type="text">
+	</div>
 </html>

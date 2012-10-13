@@ -2,6 +2,7 @@ var textToMatch = "Dette er teksten som skal matches. Det ble stille og russeren
 var correctCharacters = 0;
 var errors = 0;
 var redText = false;
+var gameOver = true;
 
 $(document).ready(function() {
 	$("#startGameButton").click(function() {
@@ -16,6 +17,10 @@ $(document).ready(function() {
 });
 
 function checkInputText(keyEvent) {
+	if (gameOver) {
+		return;
+	}
+
 	var keyPressed = String.fromCharCode(keyEvent.which);
 	var character = textToMatch.substring(correctCharacters, correctCharacters + 1);
 	
@@ -91,18 +96,46 @@ function updatePoints() {
 }
 
 function startGame() {
+	gameOver = false;
 	runTimer();
 }
 
 function runTimer() {
-	var seconds = 10;
+	var seconds = 3;
 
 	countdown = setInterval(function() {
 		$("#timeLeft").text(seconds);
 
 		if (seconds == 0) {
-			alert("Tiden er ute!");
+			gameOver = true;
+			clearInterval(countdown);
+			showRegistrationForm();
 		}
 		seconds--;
 	}, 1000);
 }
+
+function showRegistrationForm() {
+	$("#finalPoints").text(correctCharacters - errors);
+	$("#contactForm").modal();
+	$("#contactForm").css("visibility", "visible");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

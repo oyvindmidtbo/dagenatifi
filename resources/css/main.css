@@ -15,3 +15,7 @@
 	position: relative;
 	background-color: green;	
 }
+
+#contactForm {
+	visibility: hidden;
+}
