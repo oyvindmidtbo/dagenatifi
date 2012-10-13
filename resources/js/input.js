@@ -1,28 +1,84 @@
-DAGEN = {};
-
-DAGEN.data = {
-	originalText: "Lorem ipsum.",
-	split: function() {
-		return this.originalText.split("");
-	},
-	getValue: function(i) {
-		var text = this.split()[i];
-		if(text === " ") {
-			return "&nbsp;"
-		} else {
-			return text;
+var data = (function() {
+	var textToMatch = "Lorem ipsum.";
+	var textArray = textToMatch.split("");
+	
+	return {
+		asArray: function() {
+			return textArray;
+		},
+		getValue: function(i) {
+			var text = textArray[i];
+			if(text === " ") {
+				return "&nbsp;"
+			} else {
+				return text;
+			}
+		},
+		length: function() {
+			return textArray.length;
 		}
 	}
-}
+})();
 
-DAGEN.game = {
-	letter: 0,
-	score: 0
-}
+var timer = (function() {
+	var start, total = 0;
+	
+	return {
+		start: function() {
+			start = new Date().getTime();
+		},
+		finish: function() {
+			var end = new Date().getTime();
+			total = end - start;
+		},
+		getTotal: function() {
+			return total;
+		}
+	}
+})();
+
+var game = (function() {
+	var letter = 0;
+	var score = 0;
+	
+	var moveToNextLetter = function() {
+		letter += 1;
+	}
+	
+	var addToScore = function(points) {
+		score = 15;
+	}
+	
+	var getNextLetter = function() {
+		return data.asArray()[letter];
+	}
+	
+	var getNextSpan = function() {
+		return $("#" + letter);
+	}
+	
+	return {
+		getScore: function() {
+			return score;
+		},
+		isFinished: function() {
+			return letter === data.length();
+		},
+		isFirstLetter: function() {
+			return letter === 0;
+		},
+		addToScore: addToScore,
+		getNextLetter: getNextLetter,
+		getNextSpan: getNextSpan,
+		moveToNextLetter: moveToNextLetter,
+		letter: letter
+	}
+	
+})();
 
 $(function() {
-	for(var i in DAGEN.data.split()) {
-		var value = DAGEN.data.getValue(i);
+	for(var i in data.asArray()) {
+		var value = data.getValue(i);
 		$(".content").append('<span id="' + i + '">' + value + '</span>');
 	}
 
@@ -31,44 +87,33 @@ $(function() {
 	}); 	
 });
 
-var timer = {
-	timeUsed: 0,
-	start: function() {
-		this.timeUsed = new Date().getTime();
-	},
-	finish: function() {
-		var end = new Date().getTime();
-		this.timeUsed = end - this.timeUsed;
-	}
-}
-
 var finished = function(timer, score) {
-	$("#timeUsed").text(timer.timeUsed);
-	$("#score").text(score);
+	$("#timeUsed").text(timer.getTotal());
+	$("#score").text(game.getScore());
 	$(".score").slideDown(1000);
 }
 
 var checkInputText = function(keyEvent) {
-	if(DAGEN.game.letter === 0) {
+	if(game.isFirstLetter()) {
 		timer.start();
 	}
 
-	var span = $("#" + DAGEN.game.letter);
-	var character = DAGEN.data.split()[DAGEN.game.letter];
+	var span = game.getNextSpan();
+	var character = game.getNextLetter();
 	var keyPressed = String.fromCharCode(keyEvent.keyCode);
 
 	if (keyPressed === character) {
 		span.removeClass("wrong");
 		span.addClass("correct");
-		DAGEN.game.letter++;
-		DAGEN.game.score++;
+		game.moveToNextLetter();
+		game.addToScore(1);
 	} else {
 		span.addClass("wrong");
 	}
 
-	if(DAGEN.game.letter == DAGEN.data.split().length) {
+	if(game.isFinished()) {
 		timer.finish();
-		finished(timer, DAGEN.game.score);
+		finished(timer, game.score);
 	}
 }
 
