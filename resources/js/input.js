@@ -10,6 +10,14 @@ var finished = function(timeUsed, score) {
 	$(".score").slideDown(1000);
 }
 
+var getValue = function(text) {
+	if(text === " ") {
+		return "&nbsp;"
+	} else {
+		return text;
+	}
+}
+
 
 var checkInputText = function(keyEvent) {
 	if(i === 0) {
@@ -18,9 +26,12 @@ var checkInputText = function(keyEvent) {
 
 	var span = $("#" + i);
 	var character = span.text();
+	console.log(character);
 	var keyPressed = String.fromCharCode(keyEvent.keyCode);
 	
-	if (keyPressed === character) {
+	if (keyEvent.keyCode === 32) { //spacebar
+		span.addClass("correct");
+	} else if (keyPressed === character) {
 		span.addClass("correct");
 		score++;
 	} else {
@@ -37,7 +48,7 @@ var checkInputText = function(keyEvent) {
 
 $(function() {
 	for(var i in text) {
-		var value = text[i];
+		var value = getValue(text[i]);
 		$(".content").append('<span id="' + i + '">' + value + '</span>');
 	}
 
