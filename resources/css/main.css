@@ -62,6 +62,7 @@ header {
 		height: 60px;
 		padding: 2%;
 		overflow: hidden;
+		white-space: nowrap;
 }
 
 span {

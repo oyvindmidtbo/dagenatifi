@@ -46,6 +46,12 @@ var game = (function() {
 			span.addClass("correct");
 			moveToNextLetter();
 			addCorrect(1);
+			if(keyEvent.keyCode === 32) {
+				$(".text").animate({
+					marginLeft: "-=300px"
+				}, 800);
+			}
+			
 		} else {
 			span.addClass("wrong");
 			addWrong(1);
@@ -53,7 +59,7 @@ var game = (function() {
 	}
 	
 	var timer = (function() {
-		var seconds = 50; // ganger 10
+		var seconds = 300; // ganger 10
 			
 		var start = function() {
 			var countdown = setInterval(function() {
@@ -90,7 +96,7 @@ var game = (function() {
 	
 	
 	var data = (function() {
-		var textToMatch = "Lorem ipsum.";
+		var textToMatch = "Dette er teksten som skal matches. Det ble stille og russeren viste hvordan den sorte ingeniøren fungerte. Plutselig så de tjueen hobitter som kom ved siden av kartongen. Boken kom og satt. En venn ristet ei løvinne bestemt. Soldaten lekte leiligheten rett ved en lysegrønn fiskebåt. En turist malte en osthøvel. Trompetene ankom, mens gullfiskene sang på turbinen. En figur malte en moped. En kjempehelt hørte datamaskinen til purkene.";
 		var textArray = textToMatch.split("");
 
 		return {
@@ -120,7 +126,7 @@ var game = (function() {
 $(function() {
 	for(var i in game.data.asArray()) {
 		var value = game.data.getValue(i);
-		$(".content").append('<span id="' + i + '">' + value + '</span>');
+		$(".text").append('<span id="' + i + '">' + value + '</span>');
 	}
 
 	$(document).bind("keypress", function(event) {
