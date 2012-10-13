@@ -18,41 +18,56 @@ var game = (function() {
 	var getNextSpan = function() {
 		return $("#" + letter);
 	}
-
-	var start = function() {
-		start = new Date().getTime();
+	
+	var isFinished = function() {
+		return letter === data.length();
 	}
 	
-	var finish = function() {
-		var end = new Date().getTime();
-		total = end - start;
-		$("#timeUsed").text(total);
-		$("#score").text(game.getScore());
-		$(".score").slideDown(1000);
+	var isFirstLetter = function() {
+		return letter === 0;
 	}
 	
 	var checkInputText = function(keyEvent) {
-		if(game.isFirstLetter()) {
-			game.start();
+		if(isFirstLetter()) {
+			timer.start();
 		}
 
-		var span = game.getNextSpan();
-		var character = game.getNextLetter();
+		var span = getNextSpan();
+		var character = getNextLetter();
 		var keyPressed = String.fromCharCode(keyEvent.keyCode);
 
 		if (keyPressed === character) {
 			span.removeClass("wrong");
 			span.addClass("correct");
-			game.moveToNextLetter();
-			game.updateScore(1);
+			moveToNextLetter();
+			updateScore(1);
 		} else {
 			span.addClass("wrong");
 		}
 
-		if(game.isFinished()) {
-			game.finish();
+		if(isFinished()) {
+			timer.finish();
 		}
 	}
+	
+	var timer = (function() {
+		var start = function() {
+			start = new Date().getTime();
+		}
+
+		var finish = function() {
+			var end = new Date().getTime();
+			total = end - start;
+			$("#timeUsed").text(total);
+			$("#score").text(score);
+			$(".score").slideDown(1000);
+		}
+		
+		return {
+			start: start,
+			finish: finish
+		}
+	})();
 	
 	
 	var data = (function() {
@@ -78,23 +93,7 @@ var game = (function() {
 	})();
 	
 	return {
-		getScore: function() {
-			return score;
-		},
-		isFinished: function() {
-			return letter === data.length();
-		},
-		isFirstLetter: function() {
-			return letter === 0;
-		},
-		updateScore: updateScore,
-		getNextLetter: getNextLetter,
-		getNextSpan: getNextSpan,
-		moveToNextLetter: moveToNextLetter,
-		letter: letter,
 		data: data,
-		start: start,
-		finish: finish,
 		checkInputText: checkInputText
 	}
 })();
