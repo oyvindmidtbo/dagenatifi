@@ -48,7 +48,7 @@ var game = (function() {
 			addCorrect(1);
 			if(keyEvent.keyCode === 32) {
 				$(".text").animate({
-					marginLeft: "-=300px"
+					marginLeft: "-=200px"
 				}, 800);
 			}
 			

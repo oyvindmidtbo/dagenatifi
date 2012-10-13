@@ -61,14 +61,20 @@ header {
 		width: 96%;
 		height: 60px;
 		padding: 2%;
+		margin-top: 50px;
 		overflow: hidden;
 		white-space: nowrap;
+		position: relative;
 }
 
-span {
+.text {
+		position: absolute;
+}
+
+.text span {
 	display: inline-block;
 	height: 1.2em;
-	width: 1em;
+	width: 0.8em;
 	font-size: 3em;
 }
 
