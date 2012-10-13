@@ -12,9 +12,6 @@ $(document).ready(function() {
 	
 	$(document).keypress(function(event) {
   		checkInputText(event);
-  		updateCorrect();
-  		updateErrors();
-  		updatePoints();
 	}); 	
 });
 
@@ -55,6 +52,7 @@ function checkInputText(keyEvent) {
 		}
 
 		correctCharacters++;
+		updateCorrect();
 	} else {
 		if (!redText) {
 			$("#redText").text(function() {
@@ -70,20 +68,22 @@ function checkInputText(keyEvent) {
 			});
 			
 			redText = true;
-			
 		}
 
 		errors++;
+		updateErrors();
 	}
 	console.log("keyPressed: " + keyPressed  + " (" + keyEvent.which + ")");
 }
 
 function updateCorrect() {
 	$("#numberOfCorrect").text(correctCharacters);
+	updatePoints();
 }
 
 function updateErrors() {
 	$("#numberOfErrors").text(errors);
+	updatePoints();
 }
 
 function updatePoints() {
@@ -106,25 +106,3 @@ function runTimer() {
 		seconds--;
 	}, 1000);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
