@@ -105,18 +105,24 @@ function startGame() {
 }
 
 function runTimer() {
-	var seconds = 3;
+	var seconds = 50; // ganger 10
 
-	countdown = setInterval(function() {
-		$("#timeLeft").text(seconds);
-
+	countdownSeconds = setInterval(function() {
+		$("#secondsLeft").text(function() {
+			if (seconds % 10 == 0) {
+				return seconds / 10 + ".0";
+			} else {
+				return seconds / 10;
+			}
+		});
+		
 		if (seconds == 0) {
 			gameOver = true;
-			clearInterval(countdown);
-			showRegistrationForm({overlayClose:true});
+			clearInterval(countdownSeconds);
+			showRegistrationForm();
 		}
 		seconds--;
-	}, 1000);
+	}, 100);
 }
 
 function showRegistrationForm() {
