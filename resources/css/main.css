@@ -1,19 +1,26 @@
+body {
+	font-family: "Fedra Serif B Book",Georgia;
+	color: white;
+	/*background-color: #474747;*/
+	background-color: #111;
+}
+
 #textToMatch {
 	font-weight: bold;
 	font-size: 20px;
 }
 
 #greenText {
-	background-color: green;
+	background-color: #297f79;
 }
 
 #redText {
-	background-color: red;
+	background-color: #FD5157;
 }
 
 #fadingText {
 	position: relative;
-	background-color: green;	
+	background-color: #297f79;	
 }
 
 #contactForm {
