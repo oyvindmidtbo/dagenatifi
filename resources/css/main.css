@@ -1,12 +1,53 @@
-#textToMatch {
-	font-weight: bold;
-	font-size: 20px;
+body {
+	font-family: "Fedra Serif B Book",Georgia;
+	color: white;
+	/*background-color: #474747;*/
+	background-color: #111;
 }
 
-#greenText {
-	background-color: green;
+span {
+	display: inline-block;
+	height: 1em;
+	width: 1em;
+	font-size: 3em;
 }
 
-#redText {
-	background-color: red;
+.correct {
+	background-color: #297f79;
+}
+
+.wrong {
+	background-color: #FD5157;
+}
+
+.score {
+	background-color: #353535;
+	padding: 40px 60px;
+	font-size: 1.5em;
+	width: 40%;
+	margin: 20px  auto;
+	display: none;
+}
+
+.score span {
+	font-size: 1.2em;
+}
+
+.countdown {
+	width: 50%;
+	position: absolute;
+	left:0;
+    right:0;
+    top: 0;
+    bottom: 0;
+    margin: 40px auto;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%; 
+	background-color: #353535;
+	padding: 40px 60px;
+	font-size: 1.5em;
+	text-align: center;
+	border: 10px solid white;
+	display: none;
 }

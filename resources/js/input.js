@@ -1,55 +1,48 @@
-var textToMatch = "Dette er teksten som skal matches.";
-var correctCharacters = 0;
-var redText = false;
+var data = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+var score = 0;
+var text = data.split("");
+var i = 0;
+var start;
 
-$(document).ready(function() {
-	$("#normalText").text(textToMatch);
-	$(document).keypress(function(event) {
+var finished = function(timeUsed, score) {
+	$("#timeUsed").text(timeUsed);
+	$("#score").text(score);
+	$(".score").slideDown(1000);
+}
+
+
+var checkInputText = function(keyEvent) {
+	if(i === 0) {
+		start = new Date().getTime();
+	}
+
+	var span = $("#" + i);
+	var character = span.text();
+	var keyPressed = String.fromCharCode(keyEvent.keyCode);
+	
+	if (keyPressed === character) {
+		span.addClass("correct");
+		score++;
+	} else {
+		span.addClass("wrong");
+	}
+
+	i++;
+	if(i == text.length) {
+		var end = new Date().getTime();
+		var timeUsed = end - start;
+		finished(timeUsed, score);
+	}
+}
+
+$(function() {
+	for(var i in text) {
+		var value = text[i];
+		$(".content").append('<span id="' + i + '">' + value + '</span>');
+	}
+
+	$(document).bind("keypress", function(event) {
   		checkInputText(event);
 	}); 	
 });
 
-function checkInputText(keyEvent) {
-	var keyPressed = String.fromCharCode(keyEvent.which);
-	var character = textToMatch.substring(correctCharacters, correctCharacters + 1);
-	
-	if (keyPressed == character) {
-		$("#greenText").text(function() {
-			var textToGreen = $("#greenText").text() + character;
-			return textToGreen;
-		});
-
-		if (redText) {
-			$("#redText").text("");
-			redText = false;
-		} else {
-			$("#normalText").text(function() {
-				var normalText = $("#normalText").text();
-				var remainingNormalText = normalText.substring(1, normalText.length);
-				return remainingNormalText;
-			});	
-		}
-		
-
-		correctCharacters++;
-	} else {
-		if (!redText) {
-			$("#redText").text(function() {
-				var normalText = $("#normalText").text();
-				var textToRed = normalText.substring(0, 1);
-				return textToRed;
-			});
-
-			$("#normalText").text(function() {
-				var normalText = $("#normalText").text();
-				var remainingNormalText = normalText.substring(1, normalText.length);
-				return remainingNormalText;
-			});
-			
-			redText = true;
-		} else {
-
-		}
-	}
-	console.log("keyPressed: " + keyPressed);
-}
