@@ -110,9 +110,9 @@ function runTimer() {
 	countdownSeconds = setInterval(function() {
 		$("#secondsLeft").text(function() {
 			if (seconds % 10 == 0) {
-				return seconds / 10 + ".0";
+				return seconds / 10 + ",0";
 			} else {
-				return seconds / 10;
+				return (seconds / 10 + "").replace(".", ",");
 			}
 		});
 		
