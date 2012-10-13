@@ -9,6 +9,10 @@ $(document).ready(function() {
 		startGame();
 	});
 
+	$("#registerButton").click(function() {
+		registerScore();
+	});	
+
 	$("#normalText").text(textToMatch);
 	
 	$(document).keypress(function(event) {
@@ -109,7 +113,7 @@ function runTimer() {
 		if (seconds == 0) {
 			gameOver = true;
 			clearInterval(countdown);
-			showRegistrationForm();
+			showRegistrationForm({overlayClose:true});
 		}
 		seconds--;
 	}, 1000);
@@ -121,21 +125,8 @@ function showRegistrationForm() {
 	$("#contactForm").css("visibility", "visible");
 }
 
+function registerScore() {
+	$.modal.close();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	// Kode for å registrere poengsummen
+}
