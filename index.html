@@ -8,19 +8,27 @@
 		<script type="text/javascript" src="resources/js/external/jquery-1.8.2.js"></script>
 		<script type="text/javascript" src="resources/js/input.js"></script>
 	</head>
-	<header>
-		<h1>Velkommen til BEKKs skrivekonkurranse på dagen@ifi!</h1>
-	</header>
+	<div class="container">
 	
-	<section class="clock">
-		<span id="secondsLeft"></span>
-	</section>
+		<header class="clearfix">
+			<span class="logo"></span>
+			<div class="headline">
+				<div class="title">Skrivekonkurranse på dagen@ifi!</div>
+			</div>
+		</header>
 
-	<section class="score">
-		<p>Antall riktige:<span id="numberOfCorrect">0</span></p>
-	</section>
-	
+		<section class="clock">
+			<span id="secondsLeft"></span>
+		</section>
+
+		<section class="score">
+			<p>Antall riktige:<span id="correct">0</span></p>
+			<p>Antall feil:<span id="wrong">0</span></p>
+			<p>Antall poeng:<span id="score">0</span></p>
+		</section>
 
 
-	<section class="content"></section>
+
+		<section class="content"></section>
+	</div>
 </html>

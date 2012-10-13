@@ -1,14 +1,19 @@
 var game = (function() {
 	var letter = 0;
 	var score = 0;
-	var start, total = 0;
+	var correct = 0;
+	var wrong = 0;
 	
 	var moveToNextLetter = function() {
 		letter += 1;
 	}
 
-	var updateScore = function(points) {
-		score += points;
+	var addCorrect = function(points) {
+		correct += points;
+	}
+	
+	var addWrong = function(points) {
+		wrong += points;
 	}
 	
 	var getNextLetter = function() {
@@ -40,13 +45,10 @@ var game = (function() {
 			span.removeClass("wrong");
 			span.addClass("correct");
 			moveToNextLetter();
-			updateScore(1);
+			addCorrect(1);
 		} else {
 			span.addClass("wrong");
-		}
-
-		if(isFinished()) {
-			timer.finish();
+			addWrong(1);
 		}
 	}
 	
@@ -73,7 +75,10 @@ var game = (function() {
 		}
 
 		var finish = function() {
-			$("#numberOfCorrect").text(score);
+			score = correct - wrong;
+			$("#correct").text(correct);
+			$("#wrong").text(wrong);
+			$("#score").text(score);
 			$(".score").slideDown(1000);
 		}
 		
