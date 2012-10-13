@@ -105,7 +105,7 @@ function startGame() {
 }
 
 function runTimer() {
-	var seconds = 50; // ganger 10
+	var seconds = 300; // ganger 10
 
 	countdownSeconds = setInterval(function() {
 		$("#secondsLeft").text(function() {
