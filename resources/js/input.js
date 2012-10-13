@@ -48,7 +48,6 @@ function checkInputText(keyEvent) {
 		// Dersom key er mellomrom eller punktum
 		if (keyEvent.which == 32 || keyEvent.which == 46) {
 			var textToAnimate = $("#greenText").text();
-			console.log(textToAnimate);
 			$("#greenText").text("");
 			$("#fadingText").text(textToAnimate);
 			$("#fadingText").animate({
