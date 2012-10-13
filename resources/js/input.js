@@ -1,5 +1,6 @@
-var textToMatch = "Dette er teksten som skal matches.";
+var textToMatch = "Dette er teksten som skal matches. Det ble stille og russeren viste hvordan den sorte ingeniøren fungerte. Plutselig så de tjueen hobitter som kom ved siden av kartongen. Boken kom og satt. En venn ristet ei løvinne bestemt. Soldaten lekte leiligheten rett ved en lysegrønn fiskebåt. En turist malte en osthøvel. Trompetene ankom, mens gullfiskene sang på turbinen. En figur malte en moped. En kjempehelt hørte datamaskinen til purkene.";
 var correctCharacters = 0;
+var errors = 0;
 var redText = false;
 
 $(document).ready(function() {
@@ -11,6 +12,8 @@ $(document).ready(function() {
 	
 	$(document).keypress(function(event) {
   		checkInputText(event);
+  		updateCorrect();
+  		updateErrors();
   		updatePoints();
 	}); 	
 });
@@ -44,7 +47,7 @@ function checkInputText(keyEvent) {
 			$("#fadingText").text(textToAnimate);
 			$("#fadingText").animate({
 				opacity: 0.25,
-				top: '+=500'
+				top: "+=500"
 			}, 400, function() {
 				$("#fadingText").text("");
 				$("#fadingText").css("top", "-=500");
@@ -67,15 +70,24 @@ function checkInputText(keyEvent) {
 			});
 			
 			redText = true;
-		} else {
-
+			
 		}
+
+		errors++;
 	}
 	console.log("keyPressed: " + keyPressed  + " (" + keyEvent.which + ")");
 }
 
+function updateCorrect() {
+	$("#numberOfCorrect").text(correctCharacters);
+}
+
+function updateErrors() {
+	$("#numberOfErrors").text(errors);
+}
+
 function updatePoints() {
-	$("#numberOfPoints").text(correctCharacters);
+	$("#numberOfPoints").text(correctCharacters - errors);
 }
 
 function startGame() {
