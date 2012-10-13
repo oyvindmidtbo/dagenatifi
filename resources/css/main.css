@@ -10,3 +10,8 @@
 #redText {
 	background-color: red;
 }
+
+#fadingText {
+	position: relative;
+	background-color: green;	
+}

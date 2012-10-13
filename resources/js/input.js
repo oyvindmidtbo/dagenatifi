@@ -3,7 +3,12 @@ var correctCharacters = 0;
 var redText = false;
 
 $(document).ready(function() {
+	$("#startGameButton").click(function() {
+		startGame();
+	});
+
 	$("#normalText").text(textToMatch);
+	
 	$(document).keypress(function(event) {
   		checkInputText(event);
   		updatePoints();
@@ -30,7 +35,21 @@ function checkInputText(keyEvent) {
 				return remainingNormalText;
 			});	
 		}
-		
+
+		// Dersom key er mellomrom eller punktum
+		if (keyEvent.which == 32 || keyEvent.which == 46) {
+			var textToAnimate = $("#greenText").text();
+			console.log(textToAnimate);
+			$("#greenText").text("");
+			$("#fadingText").text(textToAnimate);
+			$("#fadingText").animate({
+				opacity: 0.25,
+				top: '+=500'
+			}, 400, function() {
+				$("#fadingText").text("");
+				$("#fadingText").css("top", "-=500");
+			});
+		}
 
 		correctCharacters++;
 	} else {
@@ -52,9 +71,48 @@ function checkInputText(keyEvent) {
 
 		}
 	}
-	console.log("keyPressed: " + keyPressed);
+	console.log("keyPressed: " + keyPressed  + " (" + keyEvent.which + ")");
 }
 
 function updatePoints() {
 	$("#numberOfPoints").text(correctCharacters);
 }
+
+function startGame() {
+	runTimer();
+}
+
+function runTimer() {
+	var seconds = 10;
+
+	countdown = setInterval(function() {
+		$("#timeLeft").text(seconds);
+
+		if (seconds == 0) {
+			alert("Tiden er ute!");
+		}
+		seconds--;
+	}, 1000);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
