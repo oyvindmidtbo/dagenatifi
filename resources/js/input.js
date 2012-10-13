@@ -25,13 +25,11 @@ var checkInputText = function(keyEvent) {
 	}
 
 	var span = $("#" + i);
-	var character = span.text();
+	var character = text[i];
 	console.log(character);
 	var keyPressed = String.fromCharCode(keyEvent.keyCode);
-	
-	if (keyEvent.keyCode === 32) { //spacebar
-		span.addClass("correct");
-	} else if (keyPressed === character) {
+
+	if (keyPressed === character) {
 		span.addClass("correct");
 		score++;
 	} else {
@@ -39,6 +37,7 @@ var checkInputText = function(keyEvent) {
 	}
 
 	i++;
+
 	if(i == text.length) {
 		var end = new Date().getTime();
 		var timeUsed = end - start;
