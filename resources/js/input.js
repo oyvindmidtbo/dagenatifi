@@ -51,15 +51,29 @@ var game = (function() {
 	}
 	
 	var timer = (function() {
+		var seconds = 50; // ganger 10
+			
 		var start = function() {
-			start = new Date().getTime();
+			var countdown = setInterval(function() {
+				$("#secondsLeft").text(function() {
+					if (seconds % 10 === 0) {
+						return seconds / 10 + ",0";
+					} else {
+						return (seconds / 10 + "").replace(".", ",");
+					}
+				});
+
+				if (seconds === 0) {
+					gameOver = true;
+					clearInterval(countdown);
+					finish();
+				}
+				seconds--;
+			}, 100);
 		}
 
 		var finish = function() {
-			var end = new Date().getTime();
-			total = end - start;
-			$("#timeUsed").text(total);
-			$("#score").text(score);
+			$("#numberOfCorrect").text(score);
 			$(".score").slideDown(1000);
 		}
 		
