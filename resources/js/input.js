@@ -72,7 +72,6 @@ var game = (function() {
 				});
 
 				if (seconds === 0) {
-					gameOver = true;
 					clearInterval(countdown);
 					finish();
 				}
