@@ -11,45 +11,28 @@
 		<script type="text/javascript" src="resources/js/external/jquery.simplemodal.js"></script>
 		<script type="text/javascript" src="resources/js/input.js"></script>
 	</head>
-	<header>
-		<h1>Velkommen til BEKKs skrivekonkurranse på dagen@ifi!</h1>
-	</header>
-
-	<section>
-		<div id="textToMatch">
-			<span id="fadingText"></span><span id="greenText"></span><span id="redText"></span><span id="normalText"></span>
-		</div>
-	</section>
-
-	<section>
-		<div id="stats">
-			<div>
-				<span>Antall riktige: </span><span id="numberOfCorrect">0</span>
-			</div>
-			<div>
-				<span>Antall feil: </span><span id="numberOfErrors">0</span>
-			</div>
-			<div>
-				<span>Antall poeng: </span><span id="numberOfPoints">0</span>
-			</div>
-		</div>
-	</section>
-
-	<a href="#" id="startGameButton">Start spillet!</a>
+	<div class="container">
 	
-	<section>
-		<div id="timer">
-			<span>Sekunder igjen: </span><span id="secondsLeft">30</span>
-		</div>
-	</section>	
+		<header class="clearfix">
+			<span class="logo"></span>
+			<div class="headline">
+				<div class="title">Skrivekonkurranse på dagen@ifi!</div>
+			</div>
+		</header>
+		<section class="clock">
+			<span id="secondsLeft"></span>
+		</section>
 
-	<div id="contactForm">
-		Gratulerer! Du fikk <span id="finalPoints"></span> poeng!
-		<br />
-		Skriv inn din kontaktinformasjon:
-		<br />
-		<label>Navn: </label><input id="name" type="text">
-		<label>Telefonnummer: </label><input id="phonenumber" type="text">
-		<button type="button" id="registerButton">Ok</button>
+		<section class="score">
+			<p>Antall riktige: <span id="correct">0</span></p>
+			<p>Antall feil: <span id="wrong">0</span></p>
+			<p>Antall poeng: <span id="score">0</span></p>
+		</section>
+
+
+
+		<section class="content">
+			<div class="text"></div>
+		</section>
 	</div>
 </html>

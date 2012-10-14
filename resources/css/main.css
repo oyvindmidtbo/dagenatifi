@@ -1,28 +1,119 @@
+/* float clearing for IE6 */
+* html .clearfix{
+  height: 1%;
+  overflow: visible;
+}
+
+/* float clearing for IE7 */
+*+html .clearfix{
+  min-height: 1%;
+}
+
+/* float clearing for everyone else */
+.clearfix:after{
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  font-size: 0;
+}
+
 body {
 	font-family: "Fedra Serif B Book",Georgia;
 	color: white;
-	/*background-color: #474747;*/
 	background-color: #111;
 }
 
-#textToMatch {
-	font-weight: bold;
-	font-size: 20px;
+.title {
+	font-size: 30px;
+	text-transform: uppercase;
+	line-height: 34px;
 }
 
-#greenText {
+header {
+	width: 100%;
+	padding-top: 20px;
+}
+
+.logo {
+	background-image: url(../images/bekk_sprite.png);
+	background-position: 0 -274px;
+	width: 73px;
+	height: 17px;
+	margin-top: 11px;
+	display: block;
+	float: left;
+}
+
+.headline {
+	padding-left: 70px;
+	float: right;
+}
+
+.container {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.content {
+		background-color: #353535;
+		width: 96%;
+		height: 60px;
+		padding: 2%;
+		margin-top: 50px;
+		overflow: hidden;
+		white-space: nowrap;
+		position: relative;
+}
+
+.text {
+		position: absolute;
+}
+
+.text span {
+	display: inline-block;
+	height: 1.2em;
+	width: 0.8em;
+	font-size: 3em;
+}
+
+.correct {
 	background-color: #297f79;
 }
 
-#redText {
+.wrong {
 	background-color: #FD5157;
 }
 
-#fadingText {
-	position: relative;
-	background-color: #297f79;	
+.score {
+	background-color: #353535;
+	padding: 40px 60px;
+	font-size: 1.5em;
+	width: 40%;
+	margin: 20px  auto;
+	display: none;
 }
 
-#contactForm {
-	visibility: hidden;
+.score span {
+	font-size: 1.2em;
+}
+
+.countdown {
+	width: 50%;
+	position: absolute;
+	left:0;
+    right:0;
+    top: 0;
+    bottom: 0;
+    margin: 40px auto;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%; 
+	background-color: #353535;
+	padding: 40px 60px;
+	font-size: 1.5em;
+	text-align: center;
+	border: 10px solid white;
+	display: none;
 }

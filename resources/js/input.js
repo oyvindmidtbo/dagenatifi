@@ -1,137 +1,135 @@
-var textToMatch = "Dette er teksten som skal matches. Det ble stille og russeren viste hvordan den sorte ingeniøren fungerte. Plutselig så de tjueen hobitter som kom ved siden av kartongen. Boken kom og satt. En venn ristet ei løvinne bestemt. Soldaten lekte leiligheten rett ved en lysegrønn fiskebåt. En turist malte en osthøvel. Trompetene ankom, mens gullfiskene sang på turbinen. En figur malte en moped. En kjempehelt hørte datamaskinen til purkene.";
-var correctCharacters = 0;
-var errors = 0;
-var redText = false;
-var gameOver = true;
-
-$(document).ready(function() {
-	$("#startGameButton").click(function() {
-		startGame();
-	});
-
-	$("#registerButton").click(function() {
-		registerScore();
-	});	
-
-	$("#normalText").text(textToMatch);
+var game = (function() {
+	var letter = 0;
+	var score = 0;
+	var correct = 0;
+	var wrong = 0;
 	
-	$(document).keypress(function(event) {
-  		checkInputText(event);
+	var moveToNextLetter = function() {
+		letter += 1;
+	}
+
+	var addCorrect = function(points) {
+		correct += points;
+	}
+	
+	var addWrong = function(points) {
+		wrong += points;
+	}
+	
+	var getNextLetter = function() {
+		return data.asArray()[letter];
+	}
+	
+	var getNextSpan = function() {
+		return $("#" + letter);
+	}
+	
+	var isFinished = function() {
+		return letter === data.length();
+	}
+	
+	var isFirstLetter = function() {
+		return letter === 0;
+	}
+	
+	var checkInputText = function(keyEvent) {
+		if(isFirstLetter()) {
+			timer.start();
+		}
+
+		var span = getNextSpan();
+		var character = getNextLetter();
+		var keyPressed = String.fromCharCode(keyEvent.keyCode);
+
+		if (keyPressed === character) {
+			span.removeClass("wrong");
+			span.addClass("correct");
+			moveToNextLetter();
+			addCorrect(1);
+			if(keyEvent.keyCode === 32) {
+				$(".text").animate({
+					marginLeft: "-=200px"
+				}, 800);
+			}
+			
+		} else {
+			span.addClass("wrong");
+			addWrong(1);
+		}
+	}
+	
+	var timer = (function() {
+		var seconds = 300; // ganger 10
+			
+		var start = function() {
+			var countdown = setInterval(function() {
+				$("#secondsLeft").text(function() {
+					if (seconds % 10 === 0) {
+						return seconds / 10 + ",0";
+					} else {
+						return (seconds / 10 + "").replace(".", ",");
+					}
+				});
+
+				if (seconds === 0) {
+					gameOver = true;
+					clearInterval(countdown);
+					finish();
+				}
+				seconds--;
+			}, 100);
+		}
+
+		var finish = function() {
+			score = correct - wrong;
+			$("#correct").text(correct);
+			$("#wrong").text(wrong);
+			$("#score").text(score);
+			$(".score").slideDown(1000);
+		}
+		
+		return {
+			start: start,
+			finish: finish
+		}
+	})();
+	
+	
+	var data = (function() {
+		var textToMatch = "Dette er teksten som skal matches. Det ble stille og russeren viste hvordan den sorte ingeniøren fungerte. Plutselig så de tjueen hobitter som kom ved siden av kartongen. Boken kom og satt. En venn ristet ei løvinne bestemt. Soldaten lekte leiligheten rett ved en lysegrønn fiskebåt. En turist malte en osthøvel. Trompetene ankom, mens gullfiskene sang på turbinen. En figur malte en moped. En kjempehelt hørte datamaskinen til purkene.";
+		var textArray = textToMatch.split("");
+
+		return {
+			asArray: function() {
+				return textArray;
+			},
+			getValue: function(i) {
+				var text = textArray[i];
+				if(text === " ") {
+					return "&nbsp;"
+				} else {
+					return text;
+				}
+			},
+			length: function() {
+				return textArray.length;
+			}
+		}
+	})();
+	
+	return {
+		data: data,
+		checkInputText: checkInputText
+	}
+})();
+
+$(function() {
+	for(var i in game.data.asArray()) {
+		var value = game.data.getValue(i);
+		$(".text").append('<span id="' + i + '">' + value + '</span>');
+	}
+
+	$(document).bind("keypress", function(event) {
+  		game.checkInputText(event);
 	}); 	
 });
-
-function checkInputText(keyEvent) {
-	if (gameOver) {
-		return;
-	}
-
-	var keyPressed = String.fromCharCode(keyEvent.which);
-	var character = textToMatch.substring(correctCharacters, correctCharacters + 1);
-	
-	if (keyPressed == character) {
-		$("#greenText").text(function() {
-			var textToGreen = $("#greenText").text() + character;
-			return textToGreen;
-		});
-
-		if (redText) {
-			$("#redText").text("");
-			redText = false;
-		} else {
-			$("#normalText").text(function() {
-				var normalText = $("#normalText").text();
-				var remainingNormalText = normalText.substring(1, normalText.length);
-				return remainingNormalText;
-			});	
-		}
-
-		// Dersom key er mellomrom eller punktum
-		if (keyEvent.which == 32 || keyEvent.which == 46) {
-			var textToAnimate = $("#greenText").text();
-			$("#greenText").text("");
-			$("#fadingText").text(textToAnimate);
-			$("#fadingText").animate({
-				opacity: 0.25,
-				top: "+=500"
-			}, 400, function() {
-				$("#fadingText").text("");
-				$("#fadingText").css("top", "-=500");
-			});
-		}
-
-		correctCharacters++;
-		updateCorrect();
-	} else {
-		if (!redText) {
-			$("#redText").text(function() {
-				var normalText = $("#normalText").text();
-				var textToRed = normalText.substring(0, 1);
-				return textToRed;
-			});
-
-			$("#normalText").text(function() {
-				var normalText = $("#normalText").text();
-				var remainingNormalText = normalText.substring(1, normalText.length);
-				return remainingNormalText;
-			});
-			
-			redText = true;
-		}
-
-		errors++;
-		updateErrors();
-	}
-	console.log("keyPressed: " + keyPressed  + " (" + keyEvent.which + ")");
-}
-
-function updateCorrect() {
-	$("#numberOfCorrect").text(correctCharacters);
-	updatePoints();
-}
-
-function updateErrors() {
-	$("#numberOfErrors").text(errors);
-	updatePoints();
-}
-
-function updatePoints() {
-	$("#numberOfPoints").text(correctCharacters - errors);
-}
-
-function startGame() {
-	gameOver = false;
-	runTimer();
-}
-
-function runTimer() {
-	var seconds = 300; // ganger 10
-
-	countdownSeconds = setInterval(function() {
-		$("#secondsLeft").text(function() {
-			if (seconds % 10 == 0) {
-				return seconds / 10 + ",0";
-			} else {
-				return (seconds / 10 + "").replace(".", ",");
-			}
-		});
-		
-		if (seconds == 0) {
-			gameOver = true;
-			clearInterval(countdownSeconds);
-			showRegistrationForm();
-		}
-		seconds--;
-	}, 100);
-}
-
-function showRegistrationForm() {
-	$("#finalPoints").text(correctCharacters - errors);
-	$("#contactForm").modal();
-	$("#contactForm").css("visibility", "visible");
-}
-
-function registerScore() {
-	$.modal.close();
-
-	// Kode for å registrere poengsummen
-}
