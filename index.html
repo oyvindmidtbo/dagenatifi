@@ -8,6 +8,7 @@
 		<script type="text/javascript" src="resources/js/input.js"></script>
 	</head>
 	
+<div id="fancybox-overlay"></div>
 	<div class="container">
 	
 		<header class="clearfix">
@@ -20,12 +21,15 @@
 		<section class="clock">
 			<span id="secondsLeft"></span>
 		</section>
-
-		<section class="score">
-			<p>Antall riktige: <span id="correct">0</span></p>
-			<p>Antall feil: <span id="wrong">0</span></p>
-			<p>Antall poeng: <span id="score">0</span></p>
-		</section>
+		
+		<div id="fancybox-wrap">
+			<section class="score">
+				<a href="#" class="score-close">close</a>
+				<p>Antall riktige: <span id="correct">0</span></p>
+				<p>Antall feil: <span id="wrong">0</span></p>
+				<p>Antall poeng: <span id="score">0</span></p>
+			</section>
+		</div>
 
 		<section class="content">
 			<div class="text"></div>

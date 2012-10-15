@@ -102,7 +102,9 @@ var game = (function() {
 			$("#correct").text(correct);
 			$("#wrong").text(wrong);
 			$("#score").text(score);
-			$(".score").show();
+			$("#fancybox-overlay").fadeIn(500, function() {
+				$("#fancybox-wrap").show();
+			});
 		}
 		
 		return {
