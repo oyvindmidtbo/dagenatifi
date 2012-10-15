@@ -4,39 +4,42 @@ var game = (function() {
 	var correct = 0;
 	var wrong = 0;
 	
-	var moveToNextLetter = function() {
+	function moveToNextLetter() {
 		letter += 1;
 	}
 
-	var addCorrect = function(points) {
+	function addCorrect(points) {
 		correct += points;
 	}
 	
-	var addWrong = function(points) {
+	function addWrong(points) {
 		wrong += points;
 	}
 	
-	var getNextLetter = function() {
+	function getNextLetter() {
 		return data.asArray()[letter];
 	}
 	
-	var getNextSpan = function() {
+	function getNextSpan() {
 		return $("#" + letter);
 	}
 	
-	var isFinished = function() {
+	function isFinished() {
 		return letter === data.length();
 	}
 	
-	var isFirstLetter = function() {
+	function isFirstLetter() {
 		return letter === 0;
 	}
 	
-	var checkInputText = function(keyEvent) {
-		if(isFirstLetter()) {
-			timer.start();
-		}
-
+	function start() {
+		timer.countdown();
+		$(document).keypress(function(event) {
+	  		checkInputText(event);
+		});
+	}
+	
+	function checkInputText(keyEvent) {
 		var span = getNextSpan();
 		var character = getNextLetter();
 		var keyPressed = String.fromCharCode(keyEvent.keyCode);
@@ -59,9 +62,24 @@ var game = (function() {
 	}
 	
 	var timer = (function() {
-		var seconds = 300; // ganger 10
-			
-		var start = function() {
+		var seconds = 30; // ganger 10
+		var secondsToStart = 3;
+		
+		function countdown() {
+			var countdownToStart = setInterval(function() {
+				if(secondsToStart === 0) {
+					clearInterval(countdownToStart);
+					$(".countdown").hide();
+					start();
+				} else {
+					$(".value").text(secondsToStart);
+					$(".countdown").fadeIn(700).fadeOut(300);
+					secondsToStart--;
+				}
+			}, 1000);
+		}
+		
+		function start() {
 			var countdown = setInterval(function() {
 				$("#secondsLeft").text(function() {
 					if (seconds % 10 === 0) {
@@ -79,17 +97,18 @@ var game = (function() {
 			}, 100);
 		}
 
-		var finish = function() {
+		function finish() {
 			score = correct - wrong;
 			$("#correct").text(correct);
 			$("#wrong").text(wrong);
 			$("#score").text(score);
-			$(".score").slideDown(1000);
+			$(".score").show();
 		}
 		
 		return {
 			start: start,
-			finish: finish
+			finish: finish,
+			countdown: countdown
 		}
 	})();
 	
@@ -124,7 +143,7 @@ var game = (function() {
 	
 	return {
 		data: data,
-		checkInputText: checkInputText
+		start: start
 	}
 })();
 
@@ -136,9 +155,7 @@ $(function() {
 
 	// $(document).bind("keypress", function(event) {
  //  		game.checkInputText(event);
-	// }); 	
-
-	$(document).keypress(function(event) {
-  		game.checkInputText(event);
-	}); 
+	// });
+	
+	game.start();
 });

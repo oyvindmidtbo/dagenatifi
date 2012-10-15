@@ -87,33 +87,42 @@ header {
 }
 
 .score {
-	background-color: #353535;
-	padding: 40px 60px;
-	font-size: 1.5em;
-	width: 40%;
-	margin: 20px  auto;
+	color: #fff;
 	display: none;
 }
 
-.score span {
-	font-size: 1.2em;
+.score p {
+	font-size: 2.0em;
+}
+
+#fancybox-overlay {
+/*	background-color: rgb(0, 0, 0); 
+	opacity: 0.8; 
+	cursor: auto; 
+	min-height: 4712px; 
+	display: block; 
+	height: 5520px; 
+	position: relative;
+	z-index: ;*/
 }
 
 .countdown {
-	width: 50%;
+	width: 750px;
+	height: 750px;
 	position: absolute;
 	left:0;
-    right:0;
-    top: 0;
-    bottom: 0;
-    margin: 40px auto;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%; 
+	right:0;
+	top: 0;
+	bottom: 0;
+	margin: 40px auto;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%; 
 	background-color: #353535;
 	padding: 40px 60px;
-	font-size: 1.5em;
+	font-size: 12.5em;
 	text-align: center;
 	border: 10px solid white;
 	display: none;
 }
+
