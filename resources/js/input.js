@@ -128,7 +128,11 @@ $(function() {
 		$(".text").append('<span id="' + i + '">' + value + '</span>');
 	}
 
-	$(document).bind("keypress", function(event) {
+	// $(document).bind("keypress", function(event) {
+ //  		game.checkInputText(event);
+	// }); 	
+
+	$(document).keypress(function(event) {
   		game.checkInputText(event);
-	}); 	
+	}); 
 });
