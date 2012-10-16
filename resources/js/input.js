@@ -37,6 +37,12 @@ var game = (function() {
 		$(document).keypress(function(event) {
 	  		checkInputText(event);
 		});
+		
+		$(".final-result-close").click(function() {
+			$(".fancybox-wrap.final-result-wrap").hide(0, function() {
+				$("#fancybox-overlay").fadeOut(500);
+			});
+		})
 	}
 	
 	function checkInputText(keyEvent) {
@@ -62,14 +68,18 @@ var game = (function() {
 	}
 	
 	var timer = (function() {
-		var seconds = 30; // ganger 10
+		var seconds = 300; // ganger 10
 		var secondsToStart = 3;
 		
 		function countdown() {
+					$("#fancybox-overlay").fadeIn(500, function() {
+						$(".fancybox-wrap.countdown-wrap").show();
+					});
 			var countdownToStart = setInterval(function() {
 				if(secondsToStart === 0) {
 					clearInterval(countdownToStart);
 					$(".countdown").hide();
+					$("#fancybox-overlay").hide();
 					start();
 				} else {
 					$(".value").text(secondsToStart);
@@ -103,7 +113,7 @@ var game = (function() {
 			$("#wrong").text(wrong);
 			$("#score").text(score);
 			$("#fancybox-overlay").fadeIn(500, function() {
-				$("#fancybox-wrap").show();
+				$(".fancybox-wrap.final-result-wrap").show();
 			});
 		}
 		

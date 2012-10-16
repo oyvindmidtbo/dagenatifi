@@ -14,17 +14,18 @@
 		<header class="clearfix">
 			<span class="logo"></span>
 			<div class="headline">
-				<div class="title">Skrivekonkurranse på dagen@ifi!</div>
+				<!-- <div class="title">Skrivekonkurranse på dagen@ifi!</div> -->
 			</div>
 		</header>
 		
 		<section class="clock">
-			<span id="secondsLeft"></span>
+			<h1>TID</h1>
+			<h1 id="secondsLeft">30,0</h1>
 		</section>
 		
-		<div id="fancybox-wrap">
-			<section class="score">
-				<a href="#" class="score-close">close</a>
+		<div class="fancybox-wrap final-result-wrap">
+			<section class="final-result">
+				<a href="#" class="final-result-close">close</a>
 				<p>Antall riktige: <span id="correct">0</span></p>
 				<p>Antall feil: <span id="wrong">0</span></p>
 				<p>Antall poeng: <span id="score">0</span></p>
@@ -35,8 +36,13 @@
 			<div class="text"></div>
 		</section>
 		
+		<!-- <section class="score">
+		</section> -->
+		
+	<div class="fancybox-wrap countdown-wrap">
 		<div class="countdown">
 			<span class="value"></span>
 		</div>
+	</div>
 	</div>
 </html>

@@ -25,15 +25,16 @@ body {
 	background-color: #111;
 }
 
-.title {
-	font-size: 30px;
+h1 {
+	font-size: 3.2em;
 	text-transform: uppercase;
-	line-height: 34px;
+	margin: 0;
 }
 
 header {
 	width: 100%;
 	padding-top: 20px;
+	padding-bottom: 90px;
 }
 
 .logo {
@@ -56,12 +57,19 @@ header {
 	margin: 0 auto;
 }
 
+.clock {
+	width: 125px;
+	min-height: 30px;
+	margin: 0 auto;
+	text-align: center;
+}
+
 .content {
 		background-color: #353535;
 		width: 96%;
 		height: 60px;
 		padding: 2%;
-		margin-top: 50px;
+		margin-top: 80px;
 		overflow: hidden;
 		white-space: nowrap;
 		position: relative;
@@ -86,18 +94,18 @@ header {
 	background-color: #FD5157;
 }
 
-.score {
+.final-result {
 	color: #fff;
 	width: 500px;
 	margin: 250px auto;
 	position: relative;
 }
 
-.score p {
+.final-result p {
 	font-size: 2.0em;
 }
 
-.score-close {
+.final-result-close {
 	background-image: url(../images/bekk_sprite.png);
 	background-position: -47px 0;
 	height: 74px;
@@ -113,7 +121,7 @@ header {
 	background-color: black;
 	opacity: 0.8;
 	cursor: auto;
-	min-height: 3976px;
+	min-height: 1200px;
 	display: block;
 	position: absolute;
 	top: 0;
@@ -123,7 +131,7 @@ header {
 	display: none;
 }
 
-#fancybox-wrap {
+.fancybox-wrap {
 	width: 1665px;
 	height: auto;
 	top: -20px;
@@ -138,22 +146,16 @@ header {
 }
 
 .countdown {
-	width: 750px;
-	height: 750px;
+	width: 50px;
+	height: 50px;
 	position: absolute;
 	left:0;
 	right:0;
 	top: 0;
 	bottom: 0;
 	margin: 40px auto;
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	border-radius: 50%; 
-	background-color: #353535;
-	padding: 40px 60px;
 	font-size: 12.5em;
 	text-align: center;
-	border: 10px solid white;
 	display: none;
 }
 
