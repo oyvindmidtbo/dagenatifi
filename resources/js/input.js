@@ -1,6 +1,5 @@
 var game = (function() {
 	var letter = 0;
-	var score = 0;
 	var correct = 0;
 	var wrong = 0;
 	
@@ -10,10 +9,20 @@ var game = (function() {
 
 	function addCorrect(points) {
 		correct += points;
+		updateScore();
 	}
 	
 	function addWrong(points) {
 		wrong += points;
+		updateScore();
+	}
+	
+	function getScore() {
+		return correct-wrong;
+	}
+	
+	function updateScore() {
+		$(".total-score").text(getScore());
 	}
 	
 	function getNextLetter() {
@@ -57,7 +66,7 @@ var game = (function() {
 			addCorrect(1);
 			if(keyEvent.keyCode === 32) {
 				$(".text").animate({
-					marginLeft: "-=200px"
+					marginLeft: "-=110px"
 				}, 800);
 			}
 			
@@ -108,10 +117,9 @@ var game = (function() {
 		}
 
 		function finish() {
-			score = correct - wrong;
 			$("#correct").text(correct);
 			$("#wrong").text(wrong);
-			$("#score").text(score);
+			$("#score").text(getScore());
 			$("#fancybox-overlay").fadeIn(500, function() {
 				$(".fancybox-wrap.final-result-wrap").show();
 			});
