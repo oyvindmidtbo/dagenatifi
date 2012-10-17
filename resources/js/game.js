@@ -108,6 +108,7 @@ $(function() {
 	$(".final-result-close").click(function() {
 		$(".fancybox-wrap.final-result-wrap").hide(0, function() {
 			$("#fancybox-overlay").fadeOut(500);
+			window.location.reload();
 		});
 	})
 });

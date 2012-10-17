@@ -1,5 +1,5 @@
 var timer = (function() {
-	var seconds = 30; // ganger 10
+	var seconds = 300; // ganger 10
 	var secondsToStart = 3;
 	
 	function countdown(callback) {
