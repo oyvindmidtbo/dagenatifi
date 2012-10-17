@@ -3,19 +3,17 @@ var timer = (function() {
 	var secondsToStart = 3;
 	
 	function countdown(callback) {
-				$("#fancybox-overlay").fadeIn(500, function() {
-					$(".fancybox-wrap.countdown-wrap").show();
-				});
+		$(".fancybox-wrap.countdown-wrap").show();
 		var countdownToStart = setInterval(function() {
 			if(secondsToStart === 0) {
-				clearInterval(countdownToStart);
-				$(".countdown").hide();
-				$("#fancybox-overlay").hide();
-				start();
-				callback();
-			} else {
+							clearInterval(countdownToStart);
+							$(".countdown").hide();
+							$("#fancybox-overlay").hide();
+							start();
+							callback();
+						} else {
 				$(".value").text(secondsToStart);
-				$(".countdown").fadeIn(700).fadeOut(300);
+				$(".countdown").show();
 				secondsToStart--;
 			}
 		}, 1000);

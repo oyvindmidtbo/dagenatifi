@@ -5,8 +5,6 @@ var game = (function() {
 	
 
 	function start() {
-		bindScoreClose();
-		
 		timer.countdown(function() {
 			$(document).keypress(function(event) {
 		  		checkInputText(event);
@@ -40,15 +38,7 @@ var game = (function() {
 			addWrong(1);
 		}
 	}
-	
-	function bindScoreClose() {
-		$(".final-result-close").click(function() {
-			$(".fancybox-wrap.final-result-wrap").hide(0, function() {
-				$("#fancybox-overlay").fadeOut(500);
-			});
-		})
-	}
-	
+
 	function moveToNextLetter() {
 		letter += 1;
 	}
@@ -109,5 +99,15 @@ $(function() {
 		$(".text").append('<span id="' + i + '">' + value + '</span>');
 	}
 	
-	game.start();
+	$(".start-button").click(function() {
+		$(".fancybox-wrap.start-wrap").hide(0, function() {
+			game.start();
+		});
+	})
+	
+	$(".final-result-close").click(function() {
+		$(".fancybox-wrap.final-result-wrap").hide(0, function() {
+			$("#fancybox-overlay").fadeOut(500);
+		});
+	})
 });

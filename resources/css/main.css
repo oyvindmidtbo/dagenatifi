@@ -105,7 +105,7 @@ header {
 .final-result {
 	color: #fff;
 	width: 500px;
-	margin: 250px auto;
+	margin: 350px auto;
 	position: relative;
 }
 
@@ -127,16 +127,15 @@ header {
 
 #fancybox-overlay {
 	background-color: black;
-	opacity: 0.8;
+	opacity: 0.9;
 	cursor: auto;
-	min-height: 1200px;
+	min-height: 1050px;
 	display: block;
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	z-index: 10100;
-	display: none;
 }
 
 .fancybox-wrap {
@@ -153,17 +152,36 @@ header {
 	display: none;
 }
 
+
+.start-wrap {
+	display: block;
+}
+
+.start {
+	width: 340px;
+	height: 88px;
+	padding: 20px;
+	margin-top: 350px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #353535;
+	text-align: center;
+	-webkit-border-radius: 15px;
+	cursor: pointer;
+}
+
+.start a {
+	font-size: 5em;
+}
+
 .countdown {
-	width: 50px;
-	height: 50px;
-	position: absolute;
-	left:0;
-	right:0;
-	top: 0;
-	bottom: 0;
-	margin: 40px auto;
-	font-size: 12.5em;
+	width: 100%;
+	margin: 350px 0;
 	text-align: center;
 	display: none;
+}
+
+.countdown span {
+	font-size: 12.5em;
 }
 
