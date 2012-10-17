@@ -2,7 +2,7 @@ var timer = (function() {
 	var seconds = 30; // ganger 10
 	var secondsToStart = 3;
 	
-	function countdown() {
+	function countdown(callback) {
 				$("#fancybox-overlay").fadeIn(500, function() {
 					$(".fancybox-wrap.countdown-wrap").show();
 				});
@@ -12,6 +12,7 @@ var timer = (function() {
 				$(".countdown").hide();
 				$("#fancybox-overlay").hide();
 				start();
+				callback();
 			} else {
 				$(".value").text(secondsToStart);
 				$(".countdown").fadeIn(700).fadeOut(300);
@@ -20,7 +21,7 @@ var timer = (function() {
 		}, 1000);
 	}
 	
-	function start() {
+	function start(callback) {
 		var countdown = setInterval(function() {
 			$("#secondsLeft").text(function() {
 				if (seconds % 10 === 0) {
@@ -32,7 +33,7 @@ var timer = (function() {
 
 			if (seconds === 0) {
 				clearInterval(countdown);
-				finish();
+				callback();
 			}
 			seconds--;
 		}, 100);
