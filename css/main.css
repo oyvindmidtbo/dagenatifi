@@ -198,6 +198,43 @@ header {
 	font-size: 12.5em;
 }
 
+.infoline {
+	position: relative;
+	width: 100%;
+	float: left;
+	margin-bottom: 10px;
+	font-family: 'Conduit ITC W01 Light',Arial;
+	border-bottom: 1px solid #262626;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.infoline:last-child {
+	margin-bottom: 20px;
+}
+
+.infoline .number {
+	font-size: 60px;
+	line-height: 100%;
+	color: #FD5158;
+	vertical-align: baseline;
+	padding-top: 10px;
+}
+
+.infoline .label {
+	text-transform: uppercase;
+	color: #F1F1F1;
+	font-size: 20px;
+	margin-left: 10px;
+	vertical-align: baseline;	
+}
+
+.contactinfo {
+	
+}
+
+
 input {
 	padding-bottom: 4px;
 	background-color: transparent;
