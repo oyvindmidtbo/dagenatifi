@@ -221,6 +221,8 @@ header {
 }
 
 .scoreline .number {
+	display: inline-block;
+	width: 65px;
 	font-size: 60px;
 	line-height: 100%;
 	color: #FD5158;
