@@ -157,31 +157,21 @@ header {
 
 .start-wrap {
 	display: block;
-	position: relative;
-	background-color: #111;
 	left: 0;
 	top: 0;
 	height: 70%;
 	width: 100%;
+	margin-top: 350px;
 	text-align: center;
 }
 
 .start-wrap a {
-/*	width: 340px;
-	height: 88px;
-	padding: 20px;
-	margin-top: 350px;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: #353535;
-	text-align: center;
-	-webkit-border-radius: 15px;*/
 	display: inline-block;
 	vertical-align: middle;
 	z-index: 5;
 	padding: 30px;
 	font-size: 60px;
-	font-family: 'Conduit ITC W01 Light',Arial;
+	font-family: 'Conduit ITC W01 Light', Arial;
 	line-height: 100%;
 	font-weight: bold;
 	width: 200px;
@@ -192,10 +182,10 @@ header {
 	margin: 0 auto;
 }
 
-/*.start a {
+.start-button span {
 	display: block;
-	margin-top: 75px;
-}*/
+	margin-top: 70px;
+}
 
 .countdown {
 	width: 100%;
