@@ -102,6 +102,7 @@ $(function() {
 	$(".start-button").click(function() {
 		$(".fancybox-wrap.start-wrap").hide(0, function() {
 			game.start();
+			//io.postHighScore("Øyvind Midtbø", "99515434", "oyvind.midtbo@gmail.com", 99515434);
 		});
 	})
 	

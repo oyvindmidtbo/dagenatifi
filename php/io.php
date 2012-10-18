@@ -1,14 +1,23 @@
 <?php
-	function getDBConnection() {
-		include 'db.php';
+	include("connectionString.php");
 
-		$connection = mysqli_connect($dbConfig['db_host'], $dbConfig['db_user'], $dbConfig['db_password']); 
-		$success = mysqli_select_db($connection, $dbConfig['db_name']); 
+	$connectionString = new ConnectionString();
 
-		if (!$connection || !$success) {
-			throw new Exception("ERROR when connecting to DB");
-		}
+	$connection = mysqli_connect($connectionString->getHost(), $connectionString->getUsername(), $connectionString->getPassword()); 
+	$success = mysqli_select_db($connection, $connectionString->getDatabase()); 
 
-		return $connection;
+	$name = $_POST['name'];
+	$phone = $_POST['phone'];
+	$mail = $_POST['mail'];
+	$points = $_POST['points'];
+
+	$query = "INSERT INTO participant (name, phone, mail, points) VALUES ('$name', '$phone', '$mail', '$points')";
+
+	$result = mysqli_query($connection, $query);
+
+	if ($result) {
+		echo "SUCCESS";
+	} else {
+		echo "NOSUCCESS";
 	}
 ?>
