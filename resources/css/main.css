@@ -23,6 +23,7 @@ body {
 	font-family: "Fedra Serif B Book",Georgia;
 	color: white;
 	background-color: #111;
+	-webkit-font-smoothing: antialiased;
 }
 
 h1 {
@@ -156,10 +157,17 @@ header {
 
 .start-wrap {
 	display: block;
+	position: relative;
+	background-color: #111;
+	left: 0;
+	top: 0;
+	height: 70%;
+	width: 100%;
+	text-align: center;
 }
 
-.start {
-	width: 340px;
+.start-wrap a {
+/*	width: 340px;
 	height: 88px;
 	padding: 20px;
 	margin-top: 350px;
@@ -167,13 +175,27 @@ header {
 	margin-right: auto;
 	background-color: #353535;
 	text-align: center;
-	-webkit-border-radius: 15px;
+	-webkit-border-radius: 15px;*/
+	display: inline-block;
+	vertical-align: middle;
+	z-index: 5;
+	padding: 30px;
+	font-size: 60px;
+	font-family: 'Conduit ITC W01 Light',Arial;
+	line-height: 100%;
+	font-weight: bold;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	background-color: #FD5158;
 	cursor: pointer;
+	margin: 0 auto;
 }
 
-.start a {
-	font-size: 5em;
-}
+/*.start a {
+	display: block;
+	margin-top: 75px;
+}*/
 
 .countdown {
 	width: 100%;
