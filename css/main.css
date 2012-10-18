@@ -23,6 +23,7 @@ body {
 	font-family: "Fedra Serif B Book",Georgia;
 	color: white;
 	background-color: #111;
+	height: 100%;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -66,15 +67,15 @@ header {
 }
 
 .content {
-		background-color: #353535;
-		width: 96%;
-		height: 60px;
-		padding: 2%;
-		margin-top: 80px;
-		margin-bottom: 200px;
-		overflow: hidden;
-		white-space: nowrap;
-		position: relative;
+ 	background-color: #353535;
+ 	width: 96%;
+ 	height: 60px;
+ 	padding: 2%;
+ 	margin-top: 80px;
+ 	margin-bottom: 200px;
+ 	overflow: hidden;
+ 	white-space: nowrap;
+ 	position: relative;
 }
 
 .text {
@@ -82,7 +83,6 @@ header {
 }
 
 .text span {
-/*	display: inline-block;*/
 	height: 1.2em;
 	width: 0.8em;
 	font-size: 3em;
@@ -137,11 +137,11 @@ header {
 	top: 0;
 	left: 0;
 	width: 100%;
-	z-index: 10100;
+	z-index: 100;
 }
 
 .fancybox-wrap {
-	width: 1665px;
+	width: 100%;
 	height: auto;
 	top: -20px;
 	left: -20px;
@@ -149,26 +149,24 @@ header {
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 10101;
+	z-index: 200;
 	outline: none;
 	display: none;
 }
 
 
 .start-wrap {
-	display: block;
-	left: 0;
-	top: 0;
-	height: 70%;
+	height: 100%;
 	width: 100%;
-	margin-top: 350px;
-	text-align: center;
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+	z-index: ;
 }
 
 .start-wrap a {
 	display: inline-block;
 	vertical-align: middle;
-	z-index: 5;
 	padding: 30px;
 	font-size: 60px;
 	font-family: 'Conduit ITC W01 Light', Arial;
@@ -187,9 +185,17 @@ header {
 	margin-top: 70px;
 }
 
+.countdown-wrap {
+	height: 100%;
+	width: 100%;
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+	z-index: 150;
+}
+
 .countdown {
 	width: 100%;
-	margin: 250px 0;
 	text-align: center;
 	display: none;
 }
@@ -198,7 +204,11 @@ header {
 	font-size: 12.5em;
 }
 
-.infoline {
+.scoreline-wrap {
+	margin-bottom: 40px;
+}
+
+.scoreline {
 	position: relative;
 	width: 100%;
 	float: left;
@@ -210,11 +220,7 @@ header {
 	box-sizing: border-box;
 }
 
-.infoline:last-child {
-	margin-bottom: 20px;
-}
-
-.infoline .number {
+.scoreline .number {
 	font-size: 60px;
 	line-height: 100%;
 	color: #FD5158;
@@ -222,18 +228,13 @@ header {
 	padding-top: 10px;
 }
 
-.infoline .label {
+.scoreline .label {
 	text-transform: uppercase;
 	color: #F1F1F1;
 	font-size: 20px;
 	margin-left: 10px;
 	vertical-align: baseline;	
 }
-
-.contactinfo {
-	
-}
-
 
 input {
 	padding-bottom: 4px;
