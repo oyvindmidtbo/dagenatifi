@@ -27,8 +27,10 @@ var game = (function() {
 			span.addClass("correct");
 			moveToNextLetter();
 			addCorrect(1);
-			if(keyEvent.which === 32) {
+			//32 === spacebar
+			if(keyEvent.which === 32) { 
 				$(".text").animate({
+					// console.log(span.position());
 					marginLeft: "-=110px"
 				}, 800);
 			}
