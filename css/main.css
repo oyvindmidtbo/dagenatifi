@@ -161,14 +161,13 @@ header {
 	display:-webkit-box;
 	-webkit-box-pack:center;
 	-webkit-box-align:center;
-	z-index: ;
 }
 
 .start-wrap a {
 	display: inline-block;
 	vertical-align: middle;
 	padding: 30px;
-	font-size: 60px;
+	font-size: 89px;
 	font-family: 'Conduit ITC W01 Light', Arial;
 	line-height: 100%;
 	font-weight: bold;
@@ -182,7 +181,7 @@ header {
 
 .start-button span {
 	display: block;
-	margin-top: 70px;
+	margin-top: 60px;
 }
 
 .countdown-wrap {
@@ -247,10 +246,12 @@ input {
 	color: white;
 	font-size: 20px;
 	width: 100%;
+	font-family: 'Conduit ITC W01 Light',Arial;
 }
 
 input::-webkit-input-placeholder {
 	color: #5D5D5D;
+	font-family: 'Conduit ITC W01 Light',Arial;
 }
 
 input:focus {
