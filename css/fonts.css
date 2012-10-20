@@ -1,0 +1,33 @@
+@font-face{
+	font-family:"Fedra Serif B Book";
+	src:url("../type/FedraSerifBPro-Book.otf") format("woff");
+font-style: normal;
+font-weight: normal;
+font-stretch: normal;
+}
+@font-face{
+	font-family:"Fedra Serif B Medium Italic";
+	src:url("../type/FedraSerifBPro-MediumItalic.otf") format("woff");
+font-style: italic;
+font-weight: normal;
+font-stretch: normal;
+}
+@font-face{
+	font-family:"Fedra Serif B Bold";
+	src:url("../type/FedraSerifBPro-Bold.otf") format("woff");
+font-style: normal;
+font-weight: bold;
+font-stretch: normal;
+}
+
+@font-face{
+font-family:"Conduit ITC W01 Light";
+src:url("../type/ConduitITC-Light.otf") format("woff");
+}
+
+@font-face{
+font-family:"Conduit ITC W01 Bold";
+src:url("../type/ConduitITC-Bold.otf")format("woff");
+font-weight: bold;
+}
+

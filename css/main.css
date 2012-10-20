@@ -23,6 +23,8 @@ body {
 	font-family: "Fedra Serif B Book",Georgia;
 	color: white;
 	background-color: #111;
+	height: 100%;
+	-webkit-font-smoothing: antialiased;
 }
 
 h1 {
@@ -65,15 +67,15 @@ header {
 }
 
 .content {
-		background-color: #353535;
-		width: 96%;
-		height: 60px;
-		padding: 2%;
-		margin-top: 80px;
-		margin-bottom: 200px;
-		overflow: hidden;
-		white-space: nowrap;
-		position: relative;
+ 	background-color: #353535;
+ 	width: 96%;
+ 	height: 60px;
+ 	padding: 2%;
+ 	margin-top: 80px;
+ 	margin-bottom: 200px;
+ 	overflow: hidden;
+ 	white-space: nowrap;
+ 	position: relative;
 }
 
 .text {
@@ -81,7 +83,6 @@ header {
 }
 
 .text span {
-/*	display: inline-block;*/
 	height: 1.2em;
 	width: 0.8em;
 	font-size: 3em;
@@ -136,11 +137,11 @@ header {
 	top: 0;
 	left: 0;
 	width: 100%;
-	z-index: 10100;
+	z-index: 100;
 }
 
 .fancybox-wrap {
-	width: 1665px;
+	width: 100%;
 	height: auto;
 	top: -20px;
 	left: -20px;
@@ -148,42 +149,92 @@ header {
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 10101;
+	z-index: 200;
 	outline: none;
 	display: none;
 }
 
 
 .start-wrap {
-	display: block;
+	height: 100%;
+	width: 100%;
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
 }
 
-.start {
-	width: 340px;
-	height: 88px;
-	padding: 20px;
-	margin-top: 350px;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: #353535;
-	text-align: center;
-	-webkit-border-radius: 15px;
+.start-wrap a {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 30px;
+	font-size: 89px;
+	font-family: 'Conduit ITC W01 Light', Arial;
+	line-height: 100%;
+	font-weight: bold;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	background-color: #FD5158;
 	cursor: pointer;
+	margin: 0 auto;
 }
 
-.start a {
-	font-size: 5em;
+.start-button span {
+	display: block;
+	margin-top: 60px;
+}
+
+.countdown-wrap {
+	height: 100%;
+	width: 100%;
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+	z-index: 150;
 }
 
 .countdown {
 	width: 100%;
-	margin: 250px 0;
 	text-align: center;
 	display: none;
 }
 
 .countdown span {
 	font-size: 12.5em;
+}
+
+.scoreline-wrap {
+	margin-bottom: 40px;
+}
+
+.scoreline {
+	position: relative;
+	width: 100%;
+	float: left;
+	margin-bottom: 10px;
+	font-family: 'Conduit ITC W01 Light',Arial;
+	border-bottom: 1px solid #262626;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.scoreline .number {
+	display: inline-block;
+	width: 90px;
+	font-size: 60px;
+	line-height: 100%;
+	color: #FD5158;
+	vertical-align: baseline;
+	padding-top: 10px;
+}
+
+.scoreline .label {
+	text-transform: uppercase;
+	color: #F1F1F1;
+	font-size: 20px;
+	margin-left: 10px;
+	vertical-align: baseline;	
 }
 
 input {
@@ -195,10 +246,12 @@ input {
 	color: white;
 	font-size: 20px;
 	width: 100%;
+	font-family: 'Conduit ITC W01 Light',Arial;
 }
 
 input::-webkit-input-placeholder {
 	color: #5D5D5D;
+	font-family: 'Conduit ITC W01 Light',Arial;
 }
 
 input:focus {

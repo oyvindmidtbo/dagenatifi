@@ -1,0 +1,32 @@
+body {
+	font-family: "Fedra Serif B Book",Georgia;
+	background-color: #F1F1F1;
+	color: #1F1F1F;	
+	font-size: 50px;
+}
+
+.container {
+	width: 1200px;
+	margin: 0 auto;
+	padding: 50px;
+}
+
+table {
+	width: 100%;
+	border-collapse:collapse;
+}
+
+tr {
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+th {
+	color: #297F79;
+	text-align: left;
+	padding: 20px;
+}
+
+td {
+	padding: 20px;
+}

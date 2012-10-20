@@ -20,15 +20,17 @@ var game = (function() {
 	function checkInputText(keyEvent) {
 		var span = getNextSpan();
 		var character = getNextLetter();
-		var keyPressed = String.fromCharCode(keyEvent.keyCode);
+		var keyPressed = String.fromCharCode(keyEvent.which);
 
 		if (keyPressed === character) {
 			span.removeClass("wrong");
 			span.addClass("correct");
 			moveToNextLetter();
 			addCorrect(1);
-			if(keyEvent.keyCode === 32) {
+			//32 === spacebar
+			if(keyEvent.which === 32) { 
 				$(".text").animate({
+					// console.log(span.position());
 					marginLeft: "-=110px"
 				}, 800);
 			}
@@ -94,6 +96,9 @@ var game = (function() {
 })();
 
 $(function() {
+	window.onbeforeunload = function(e) {
+		e.preventDefault(); // prevent the user from leaving the page
+	}
 	for(var i in data.asArray()) {
 		var value = data.getValue(i);
 		$(".text").append('<span id="' + i + '">' + value + '</span>');

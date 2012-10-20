@@ -3,12 +3,14 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Skrivekonkurranse på dagen@ifi</title>
+		<link rel="stylesheet" href="css/fonts.css" type="text/css" media="screen" charset="utf-8">
 		<link rel="stylesheet" href="css/main.css" type="text/css" media="screen" charset="utf-8">
 		<script type="text/javascript" src="js/external/jquery-1.8.2.js"></script>
 		<script type="text/javascript" src="js/timer.js"></script>
 		<script type="text/javascript" src="js/data.js"></script>
 		<script type="text/javascript" src="js/game.js"></script>
 		<script type="text/javascript" src="js/io.js"></script>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 	</head>
 	
 <div id="fancybox-overlay"></div>
@@ -29,12 +31,21 @@
 		<div class="fancybox-wrap final-result-wrap">
 			<section class="final-result">
 				<a href="#" class="final-result-close">close</a>
-				<h3>Poeng</h3>
-				<p>Antall riktige: <span id="correct">0</span></p>
-				<p>Antall feil: <span id="wrong">0</span></p>
-				<p>Antall poeng: <span class="total-score">0</span></p>
+				<div class="scoreline-wrap clearfix">
+					<div class="scoreline">
+						<span class="number" id="correct"></span>
+						<span class="label">riktig</span>
+					</div>
+					<div class="scoreline">
+						<span class="number" id="wrong"></span>
+						<span class="label">feil</span>
+					</div>
+					<div class="scoreline">
+						<span class="number" id="score"></span>
+						<span class="label">poeng</span>
+					</div>
+				</div>
 				
-				<h3>Kontaktinfo</h3>
 				<p><input placeholder="Navn" type="text" name="name"/></p>
 				<p><input placeholder="Telefon" type="text" name="phone"/></p>
 				<p><input placeholder="E-post" type="text" name="email"/></p>
@@ -51,9 +62,9 @@
 		</section>
 		
 		<div class="fancybox-wrap start-wrap">
-			<div class="start">
-				<a class="start-button">START</a>
-			</div>
+				<a class="start-button">
+					<span>START</span>
+				</a>
 		</div>
 			
 		<div class="fancybox-wrap countdown-wrap">
