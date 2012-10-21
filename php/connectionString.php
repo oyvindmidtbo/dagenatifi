@@ -1,5 +1,6 @@
 <?php
 	class ConnectionString {
+		// Enter database information
    		private $host = '';
    		private $username = '';
    		private $password = '';
