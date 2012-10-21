@@ -13,7 +13,7 @@ var game = (function() {
 			timer.start(function() {
 				$(document).unbind("keypress");
 				timer.finish();
-			})
+			});
 		});
 	}
 	
