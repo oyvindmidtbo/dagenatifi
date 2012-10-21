@@ -11,14 +11,14 @@ var io = (function() {
 		});
 	}
 
-	function getHighScoreList() {
+	function getHighScoreList(callback) {
 		$.ajax({
 			type: "POST",
 			url: "php/io.php",
 			cache: false,
 			data:  {fn: "getHighScoreList"},
 			success: function(data) {
-				return data.participants;
+				callback(data.participants);
 			}
 		});
 	}
