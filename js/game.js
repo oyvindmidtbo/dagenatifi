@@ -86,12 +86,20 @@ var game = (function() {
 	function isFirstLetter() {
 		return letter === 0;
 	}
+
+	function closeContactForm() {
+		$(".fancybox-wrap.final-result-wrap").hide(0, function() {
+			$("#fancybox-overlay").fadeOut(500);
+			window.location.reload();
+		});
+	}
 	
 	return {
 		start: start,
 		getCorrect: getCorrect,
 		getWrong: getWrong,
-		getScore: getScore
+		getScore: getScore,
+		closeContactForm: closeContactForm
 	}
 })();
 
@@ -99,6 +107,7 @@ $(function() {
 	window.onbeforeunload = function(e) {
 		e.preventDefault(); // prevent the user from leaving the page
 	}
+
 	for(var i in data.asArray()) {
 		var value = data.getValue(i);
 		$(".text").append('<span id="' + i + '">' + value + '</span>');
@@ -111,9 +120,26 @@ $(function() {
 	})
 	
 	$(".final-result-close").click(function() {
-		$(".fancybox-wrap.final-result-wrap").hide(0, function() {
-			$("#fancybox-overlay").fadeOut(500);
-			window.location.reload();
-		});
+		game.closeContactForm();
 	})
+
+	$(".final-result").keypress(function(event) {
+		var enterKeyCode = 13;
+		
+		if (event.which === enterKeyCode) {
+			var name = $("#participantName").val();
+			var phone = $("#participantPhone").val();
+			var mail = $("#participantMail").val();
+			var points = game.getScore();
+
+			if (name && phone && mail) {
+				// Kanskje sjekke om informasjonen faktisk blir lagret.
+				io.postScore(name, phone, mail, points);
+				alert("Informasjonen ble lagret.")
+				game.closeContactForm();
+			} else {
+				alert("Ops, skriv inn all informasjonen!");
+			}
+		}
+	});
 });
