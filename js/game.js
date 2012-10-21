@@ -25,19 +25,17 @@ var game = (function() {
 		if (keyPressed === character) {
 			span.addClass("correct");
 			addCorrect(1);
-
-			//32 === spacebar
-			if(keyEvent.which === 32) { 
-				$(".text").animate({
-					// console.log(span.position());
-					marginLeft: "-=110px"
-				}, 800);
-			}
-			
 		} else {
 			span.addClass("wrong");
 			addWrong(1);
 		}
+
+		if (character === " ") { 
+			$(".text").animate({
+				marginLeft: "-=110px"
+			}, 800);
+		}
+
 		moveToNextLetter();
 	}
 
@@ -133,10 +131,12 @@ $(function() {
 			var points = game.getScore();
 
 			if (name && phone && mail) {
-				// Kanskje sjekke om informasjonen faktisk blir lagret.
-				io.postScore(name, phone, mail, points);
-				alert("Informasjonen ble lagret.")
-				game.closeContactForm();
+				io.postScore(name, phone, mail, points, function(data) {
+					alert("Informasjonen ble lagret.")
+					game.closeContactForm();
+				}, function(data) {
+					alert("Feil under lagring av inforasjon: " + data);
+				});
 			} else {
 				alert("Ops, skriv inn all informasjonen!");
 			}
