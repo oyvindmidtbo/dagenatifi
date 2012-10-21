@@ -38,3 +38,13 @@ CREATE TABLE `participant` (
 INSERT INTO `participant` (name, phone, mail, points) VALUES('Hans Hansen', '12345678', 'hans.hansen@gmail.com', 66);
 INSERT INTO `participant` (name, phone, mail, points) VALUES('Per Persen', '66898974', 'per.persen@gmail.com', 300);
 INSERT INTO `participant` (name, phone, mail, points) VALUES('Olav Olavsen', '34545544', 'olav.olavsen@gmail.com', 105);
+INSERT INTO `participant` (name, phone, mail, points) VALUES('Olav Olavsen', '34545544', 'olav.olavsen@gmail.com', 1);
+INSERT INTO `participant` (name, phone, mail, points) VALUES('Olav Olavsen', '34545544', 'olav.olavsen@gmail.com', 2);
+INSERT INTO `participant` (name, phone, mail, points) VALUES('Olav Olavsen', '34545544', 'olav.olavsen@gmail.com', 3);
+INSERT INTO `participant` (name, phone, mail, points) VALUES('Olav Olavsen', '34545544', 'olav.olavsen@gmail.com', 4);
+INSERT INTO `participant` (name, phone, mail, points) VALUES('Olav Olavsen', '34545544', 'olav.olavsen@gmail.com', 5);
+INSERT INTO `participant` (name, phone, mail, points) VALUES('Olav Olavsen', '34545544', 'olav.olavsen@gmail.com', 6);
+INSERT INTO `participant` (name, phone, mail, points) VALUES('Olav Olavsen', '34545544', 'olav.olavsen@gmail.com', 7);
+INSERT INTO `participant` (name, phone, mail, points) VALUES('Olav Olavsen', '34545544', 'olav.olavsen@gmail.com', 8);
+INSERT INTO `participant` (name, phone, mail, points) VALUES('Olav Olavsen', '34545544', 'olav.olavsen@gmail.com', 9);
+INSERT INTO `participant` (name, phone, mail, points) VALUES('Olav Olavsen', '34545544', 'olav.olavsen@gmail.com', 10);
