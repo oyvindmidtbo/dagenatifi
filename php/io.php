@@ -1,23 +1,64 @@
 <?php
-	include("connectionString.php");
+	include 'connectionString.php';
+	
+	main();
 
-	$connectionString = new ConnectionString();
+	function getDatabaseConnection() {
+		$connectionString = new ConnectionString();
 
-	$connection = mysqli_connect($connectionString->getHost(), $connectionString->getUsername(), $connectionString->getPassword()); 
-	$success = mysqli_select_db($connection, $connectionString->getDatabase()); 
+		$connection = mysqli_connect($connectionString->getHost(), $connectionString->getUsername(), $connectionString->getPassword()); 
+		$success = mysqli_select_db($connection, $connectionString->getDatabase()); 
 
-	$name = $_POST['name'];
-	$phone = $_POST['phone'];
-	$mail = $_POST['mail'];
-	$points = $_POST['points'];
+		if (!$connection || !$success) {
+			throw new Exception("Error when connecting to database");
+		}
 
-	$query = "INSERT INTO participant (name, phone, mail, points) VALUES ('$name', '$phone', '$mail', '$points')";
+		return $connection;
+	}
 
-	$result = mysqli_query($connection, $query);
+	function postScore($name, $phone, $mail, $points) {
+		$connection = getDatabaseConnection();
 
-	if ($result) {
-		echo "SUCCESS";
-	} else {
-		echo "NOSUCCESS";
+		$name = mysqli_real_escape_string($connection, $name);
+		$phone = mysqli_real_escape_string($connection, $phone);
+		$mail = mysqli_real_escape_string($connection, $mail);
+		$points = mysqli_real_escape_string($connection, $points);
+
+		$query = "INSERT INTO participant (name, phone, mail, points) VALUES ('$name', '$phone', '$mail', '$points')";
+
+		$result = mysqli_query($connection, $query);
+
+		if (!$result) {
+			throw new Exception("Error when doing SQL query");
+		}
+	}
+
+	function getHighScoreList() {
+		$connection = getDatabaseConnection();
+
+		$query = "SELECT name, points FROM participant ORDER BY points DESC";
+
+		$result = mysqli_query($connection, $query);
+		
+		if (!$result) {
+			throw new Exception("Error when doing SQL query");
+		}
+
+		$rows = array();
+
+		while ($r = mysqli_fetch_assoc($result)) {
+			$rows['participants'][] = $r;
+		}
+
+		header("Content-type: application/json");
+		print json_encode($rows);
+	}
+
+	function main() {
+		if ($_POST['fn'] == "postScore") {
+			postScore($_POST['name'], $_POST['phone'], $_POST['mail'], $_POST['points']);
+		} else if ($_POST['fn'] == "getHighScoreList") {
+			getHighScoreList();
+		}
 	}
 ?>

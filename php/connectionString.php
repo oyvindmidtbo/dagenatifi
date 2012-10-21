@@ -1,9 +1,9 @@
 <?php
 	class ConnectionString {
-   		public $host = '';
-   		public $username = '';
-   		public $password = '';
-   		public $database = '';
+   		private $host = '';
+   		private $username = '';
+   		private $password = '';
+   		private $database = '';
 
     	public function getHost() {
 			if (parse_url($_SERVER['HTTP_HOST'], 1) != 'localhost') {

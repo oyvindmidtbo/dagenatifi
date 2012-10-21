@@ -1,21 +1,30 @@
 var io = (function() {
-	function postHighScore(name, phone, mail, points) {
-		// $.post('php/io.php', {name: name, phone: phone, mail: mail, points: points}, function(data) {
-		// 	console.log("data: " + data);	
-		// });
-
+	function postScore(name, phone, mail, points) {
 		$.ajax({
 			type: "POST",
 			url: "php/io.php",
 			cache: false,
-			data:  {name: name, phone: phone, mail: mail, points: points},
+			data:  {fn: "postScore", name: name, phone: phone, mail: mail, points: points},
 			success: function(data) {
-				console.log("grattis...");
+				// success code
+			}
+		});
+	}
+
+	function getHighScoreList() {
+		$.ajax({
+			type: "POST",
+			url: "php/io.php",
+			cache: false,
+			data:  {fn: "getHighScoreList"},
+			success: function(data) {
+				return data.participants;
 			}
 		});
 	}
 
 	return {
-		postHighScore: postHighScore
+		postScore: postScore,
+		getHighScoreList: getHighScoreList
 	}
 }());
