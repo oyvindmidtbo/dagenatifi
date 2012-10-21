@@ -46,8 +46,8 @@
 
 		$rows = array();
 
-		while ($r = mysqli_fetch_assoc($result)) {
-			$rows['participants'][] = $r;
+		while ($row = mysqli_fetch_assoc($result)) {
+			$rows['participants'][] = $row;
 		}
 
 		header("Content-type: application/json");
