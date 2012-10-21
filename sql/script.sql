@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 3.2.5
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
 -- Vert: localhost
--- Generert den: 18. Okt, 2012 23:50 PM
--- Tjenerversjon: 5.1.44
--- PHP-Versjon: 5.3.2
+-- Generert den: 22. Okt, 2012 01:16 AM
+-- Tjenerversjon: 5.5.25
+-- PHP-Versjon: 5.4.4
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 DROP DATABASE IF EXISTS dagen;
 CREATE DATABASE dagen;
 USE dagen;
