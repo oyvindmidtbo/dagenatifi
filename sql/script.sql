@@ -35,7 +35,6 @@ CREATE TABLE `participant` (
 -- Dataark for tabell `participant`
 --
 
-INSERT INTO `participant` (name, phone, mail, points) VALUES('Øyvind Midtbø', '99515434', 'oyvind.midtbo@gmail.com', 100);
 INSERT INTO `participant` (name, phone, mail, points) VALUES('Hans Hansen', '12345678', 'hans.hansen@gmail.com', 66);
 INSERT INTO `participant` (name, phone, mail, points) VALUES('Per Persen', '66898974', 'per.persen@gmail.com', 300);
 INSERT INTO `participant` (name, phone, mail, points) VALUES('Olav Olavsen', '34545544', 'olav.olavsen@gmail.com', 105);
