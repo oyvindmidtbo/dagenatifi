@@ -170,18 +170,18 @@ header {
 	font-size: 89px;
 	font-family: 'Conduit ITC W01 Light', Arial;
 	line-height: 100%;
+	text-align: center;
 	font-weight: bold;
-	width: 200px;
-	height: 200px;
+	min-width: 200px;
+	min-height: 200px;
 	border-radius: 50%;
 	background-color: #FD5158;
 	cursor: pointer;
-	margin: 0 auto;
 }
 
 .start-button span {
 	display: block;
-	margin-top: 60px;
+	margin-top: 56px;
 }
 
 .countdown-wrap {
