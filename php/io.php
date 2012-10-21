@@ -36,7 +36,7 @@
 	function getHighScoreList() {
 		$connection = getDatabaseConnection();
 
-		$query = "SELECT name, points FROM participant ORDER BY points DESC";
+		$query = "SELECT name, points FROM participant ORDER BY points DESC LIMIT 0, 10";
 
 		$result = mysqli_query($connection, $query);
 		
