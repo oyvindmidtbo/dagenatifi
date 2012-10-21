@@ -10,6 +10,7 @@ var score = (function() {
 		console.log("Telefon: " + participants[0].phone);
 		console.log("E-postadresse: " + participants[0].mail);
 		console.log("Poeng: " + participants[0].mail);
+		console.log("******************************");
 	}
 
 	return {
