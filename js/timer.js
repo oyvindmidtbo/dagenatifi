@@ -43,6 +43,7 @@ var timer = (function() {
 		$("#score").text(game.getScore());
 		$("#fancybox-overlay").fadeIn(500, function() {
 			$(".fancybox-wrap.final-result-wrap").show();
+			$("#participantName").focus();
 		});
 	}
 	
