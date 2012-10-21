@@ -84,8 +84,8 @@ header {
 
 .text span {
 	height: 1.2em;
-	width: 0.8em;
 	font-size: 3em;
+	display: inline-block;
 }
 
 .score {

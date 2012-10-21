@@ -23,10 +23,9 @@ var game = (function() {
 		var keyPressed = String.fromCharCode(keyEvent.which);
 
 		if (keyPressed === character) {
-			span.removeClass("wrong");
 			span.addClass("correct");
-			moveToNextLetter();
 			addCorrect(1);
+
 			//32 === spacebar
 			if(keyEvent.which === 32) { 
 				$(".text").animate({
@@ -39,6 +38,7 @@ var game = (function() {
 			span.addClass("wrong");
 			addWrong(1);
 		}
+		moveToNextLetter();
 	}
 
 	function moveToNextLetter() {
