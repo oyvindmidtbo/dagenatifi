@@ -13,7 +13,7 @@ var game = (function() {
 			timer.start(function() {
 				$(document).unbind("keypress");
 				timer.finish();
-			})
+			});
 		});
 	}
 	
@@ -25,19 +25,17 @@ var game = (function() {
 		if (keyPressed === character) {
 			span.addClass("correct");
 			addCorrect(1);
-
-			//32 === spacebar
-			if(keyEvent.which === 32) { 
-				$(".text").animate({
-					// console.log(span.position());
-					marginLeft: "-=110px"
-				}, 800);
-			}
-			
 		} else {
 			span.addClass("wrong");
 			addWrong(1);
 		}
+
+		if (character === " ") { 
+			$(".text").animate({
+				marginLeft: "-=110px"
+			}, 800);
+		}
+
 		moveToNextLetter();
 	}
 
@@ -86,12 +84,20 @@ var game = (function() {
 	function isFirstLetter() {
 		return letter === 0;
 	}
+
+	function closeContactForm() {
+		$(".fancybox-wrap.final-result-wrap").hide(0, function() {
+			$("#fancybox-overlay").fadeOut(500);
+			window.location.reload();
+		});
+	}
 	
 	return {
 		start: start,
 		getCorrect: getCorrect,
 		getWrong: getWrong,
-		getScore: getScore
+		getScore: getScore,
+		closeContactForm: closeContactForm
 	}
 })();
 
@@ -99,6 +105,7 @@ $(function() {
 	window.onbeforeunload = function(e) {
 		e.preventDefault(); // prevent the user from leaving the page
 	}
+
 	for(var i in data.asArray()) {
 		var value = data.getValue(i);
 		$(".text").append('<span id="' + i + '">' + value + '</span>');
@@ -111,9 +118,28 @@ $(function() {
 	})
 	
 	$(".final-result-close").click(function() {
-		$(".fancybox-wrap.final-result-wrap").hide(0, function() {
-			$("#fancybox-overlay").fadeOut(500);
-			window.location.reload();
-		});
+		game.closeContactForm();
 	})
+
+	$(".final-result").keypress(function(event) {
+		var enterKeyCode = 13;
+		
+		if (event.which === enterKeyCode) {
+			var name = $("#participantName").val();
+			var phone = $("#participantPhone").val();
+			var mail = $("#participantMail").val();
+			var points = game.getScore();
+
+			if (name && phone && mail) {
+				io.postScore(name, phone, mail, points, function(data) {
+					alert("Informasjonen ble lagret.")
+					game.closeContactForm();
+				}, function(data) {
+					alert("Feil under lagring av inforasjon: " + data);
+				});
+			} else {
+				alert("Ops, skriv inn all informasjonen!");
+			}
+		}
+	});
 });

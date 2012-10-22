@@ -36,7 +36,7 @@
 	function getHighScoreList() {
 		$connection = getDatabaseConnection();
 
-		$query = "SELECT name, points FROM participant ORDER BY points DESC LIMIT 0, 10";
+		$query = "SELECT name, phone, mail, points FROM participant ORDER BY points DESC LIMIT 0, 10";
 
 		$result = mysqli_query($connection, $query);
 		
@@ -46,8 +46,8 @@
 
 		$rows = array();
 
-		while ($r = mysqli_fetch_assoc($result)) {
-			$rows['participants'][] = $r;
+		while ($row = mysqli_fetch_assoc($result)) {
+			$rows['participants'][] = $row;
 		}
 
 		header("Content-type: application/json");
