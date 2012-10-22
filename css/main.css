@@ -164,8 +164,9 @@ header {
 }
 
 .start-wrap a {
-	display: inline-block;
-	vertical-align: middle;
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
 	padding: 30px;
 	font-size: 89px;
 	font-family: 'Conduit ITC W01 Light', Arial;
@@ -177,11 +178,6 @@ header {
 	border-radius: 50%;
 	background-color: #FD5158;
 	cursor: pointer;
-}
-
-.start-button span {
-	display: block;
-	margin-top: 56px;
 }
 
 .countdown-wrap {
