@@ -16,7 +16,7 @@ var io = (function() {
 
 	function getHighScoreList(callback) {
 		$.ajax({
-			type: "POST",
+			type: "GET",
 			url: "php/io.php",
 			cache: false,
 			data:  {fn: "getHighScoreList"},
