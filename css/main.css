@@ -143,8 +143,6 @@ header {
 .fancybox-wrap {
 	width: 100%;
 	height: auto;
-	top: -20px;
-	left: -20px;
 	display: block;
 	position: absolute;
 	top: 0;
@@ -154,16 +152,7 @@ header {
 	display: none;
 }
 
-
-.start-wrap {
-	height: 100%;
-	width: 100%;
-	display:-webkit-box;
-	-webkit-box-pack:center;
-	-webkit-box-align:center;
-}
-
-.start-wrap a {
+.circle {
 	display:-webkit-box;
 	-webkit-box-pack:center;
 	-webkit-box-align:center;
@@ -177,7 +166,31 @@ header {
 	min-height: 200px;
 	border-radius: 50%;
 	background-color: #FD5158;
+}
+
+.start-wrap {
+	height: 100%;
+	width: 100%;
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+}
+
+.start-wrap a {
 	cursor: pointer;
+}
+
+.finish-wrap {
+	height: 100%;
+	width: 100%;
+	display: -webkit-box;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+	z-index: 160;
+}
+
+.finish-wrap div {
+	display: none	;
 }
 
 .countdown-wrap {

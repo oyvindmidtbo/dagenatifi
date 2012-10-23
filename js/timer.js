@@ -41,9 +41,12 @@ var timer = (function() {
 		$("#correct").text(game.getCorrect());
 		$("#wrong").text(game.getWrong());
 		$("#score").text(game.getScore());
+		
 		$("#fancybox-overlay").fadeIn(500, function() {
-			$(".fancybox-wrap.final-result-wrap").show();
-			$("#participantName").focus();
+			$(".finish").css("display", "-webkit-box").delay(1000).fadeOut(300, function() {
+				$(".fancybox-wrap.final-result-wrap").fadeIn(300);
+				$("#participantName").focus();
+			});
 		});
 	}
 	
