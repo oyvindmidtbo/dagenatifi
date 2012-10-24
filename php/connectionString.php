@@ -7,35 +7,39 @@
    		private $database = '';
 
     	public function getHost() {
-			if (parse_url($_SERVER['SERVER_NAME'], 1) != 'localhost') {
-				return $this->host;
-			} else {
+			if ($this->isOnLocalhost()) {
 				return 'localhost';
+			} else {
+				return $this->host;
 			}
     	}
 
     	public function getUsername() {
-			if (parse_url($_SERVER['SERVER_NAME'], 1) != 'localhost') {
-				return $this->username;
-			} else {
+			if ($this->isOnLocalhost()) {
 				return 'root';
+			} else {
+				return $this->username;
 			}
     	}
 
     	public function getPassword() {
-			if (parse_url($_SERVER['SERVER_NAME'], 1) != 'localhost') {
-        		return $this->password;
+			if ($this->isOnLocalhost()) {
+        		return 'root';
 			} else {
-				return 'root';
+				return $this->password;
 			}
     	}
 
 		public function getDatabase() {
-        	if (parse_url($_SERVER['SERVER_NAME'], 1) != 'localhost') {
-        		return $this->database;
+        	if ($this->isOnLocalhost()) {
+        		return 'dagen';
 			} else {
-				return 'dagen';
+				return $this->database;	
 			}
+    	}
+    	
+    	private function isOnLocalhost() {
+    		return ($_SERVER['SERVER_NAME'] === 'localhost');
     	}
 	}
 ?>
