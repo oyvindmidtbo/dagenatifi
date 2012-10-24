@@ -131,7 +131,7 @@ header {
 	background-color: black;
 	opacity: 0.9;
 	cursor: auto;
-	min-height: 1050px;
+	min-height: 1080px;
 	display: block;
 	position: absolute;
 	top: 0;
@@ -190,7 +190,8 @@ header {
 }
 
 .finish-wrap div {
-	display: none	;
+	display: none;
+	font-size: 71px;
 }
 
 .countdown-wrap {
