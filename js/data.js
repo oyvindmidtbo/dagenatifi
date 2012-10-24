@@ -1,5 +1,5 @@
 var data = (function() {
-	var textToMatch = "Dette er teksten som skal matches. Det ble stille og russeren viste hvordan den sorte ingeniøren fungerte. Plutselig så de tjueen hobitter som kom ved siden av kartongen. Boken kom og satt. En venn ristet ei løvinne bestemt. Soldaten lekte leiligheten rett ved en lysegrønn fiskebåt. En turist malte en osthøvel. Trompetene ankom, mens gullfiskene sang på turbinen. En figur malte en moped. En kjempehelt hørte datamaskinen til purkene.";
+	var textToMatch = "Det ble stille og (russeren) viste {hvordan} den [sorte] ingeniøren fungerte? Plutselig/Da så de tjueen(?) hobitter [som] kom ved {siden} av kartongen! Boken kom og satt!? En venn (ristet) ei løvinne [bestemt]. Soldaten {lekte} leiligheten rett(?) ved en lysegrønn fiskebåt!! En turist [malte} en osthøvel. Trompetene {ankom}, mens gullfiskene sang på turbinen!! En figur $malte$ en #moped#. En kjempehelt &hørte& datamaskinen %til% purkene!";
 	var textArray = textToMatch.split("");
 		
 	function asArray() {
