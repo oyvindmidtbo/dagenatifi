@@ -103,6 +103,11 @@ header {
 	background-color: #FD5157;
 }
 
+.status-message {
+
+}
+
+
 .final-result {
 	color: #fff;
 	width: 500px;
@@ -114,6 +119,15 @@ header {
 .final-result p {
 	font-size: 20px;
 }
+
+.status-message-success {
+	color: #297f79;
+}
+
+.status-message-error {
+	color: #FD5157;
+}
+
 
 .final-result-close {
 	background-image: url(../images/bekk_sprite.png);

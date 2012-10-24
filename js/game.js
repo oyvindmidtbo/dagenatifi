@@ -120,7 +120,8 @@ $(function() {
 	
 	$(".start-button").click(function() {
 		$(".fancybox-wrap.start-wrap").hide(0, function() {
-			game.start();
+			//game.start();
+			timer.finish();
 		});
 	})
 	
@@ -139,13 +140,17 @@ $(function() {
 
 			if (name && phone && mail) {
 				io.postScore(name, phone, mail, points, function(data) {
-					alert("Informasjonen ble lagret.")
+					$(".status-message").text("Informasjonen ble lagret.");
+					$(".status-message").addClass(".correct");
+					$(".status-message").show();
 					game.closeContactForm();
 				}, function(data) {
 					alert("Feil under lagring av inforasjon: " + data);
 				});
 			} else {
-				alert("Ops, skriv inn all informasjonen!");
+				$(".status-message").text("Ops, skriv inn all informasjon!");
+				$(".status-message").addClass("status-message-error");
+				$(".status-message").show();
 			}
 		}
 	});
