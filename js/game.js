@@ -29,10 +29,14 @@ var game = (function() {
 			addCorrect(1);
 			moveToNextLetter();
 		} else {
+			$("body").effect().stop(true);
+			$("body").css("background-color", "#111");
 			$("body").effect("highlight", {
 				color: "#FD5157"
 			}, 300);
+
 			span.addClass("wrong");
+			//$("#soundHandle")[0].clearQueue();
 			$("#soundHandle")[0].play();
 			addWrong(1);
 		}
