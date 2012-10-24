@@ -103,8 +103,19 @@ header {
 	background-color: #FD5157;
 }
 
-.status-message {
+.status-message-success {
+	color: #297f79;
+}
 
+.status-message-error {
+	color: #FD5157;
+}
+
+.status-message {
+	font-family: 'Conduit ITC W01 Light', Arial;
+	font-size: 30px;
+	display: none;
+	margin: 20px 0;
 }
 
 
@@ -120,14 +131,6 @@ header {
 	font-size: 20px;
 }
 
-.status-message-success {
-	color: #297f79;
-}
-
-.status-message-error {
-	color: #FD5157;
-}
-
 
 .final-result-close {
 	background-image: url(../images/bekk_sprite.png);
@@ -135,7 +138,7 @@ header {
 	height: 74px;
 	width: 74px;
 	position: absolute;
-	top: -80px;
+	top: -105px;
 	right: 0;
 	display: block;
 	text-indent: -9999px;
@@ -236,7 +239,7 @@ header {
 	width: 100%;
 	float: left;
 	margin-bottom: 10px;
-	font-family: 'Conduit ITC W01 Light',Arial;
+	font-family: 'Conduit ITC W01 Light', Arial;
 	border-bottom: 1px solid #262626;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;

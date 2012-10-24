@@ -117,11 +117,17 @@ $(function() {
 		var value = data.getValue(i);
 		$(".text").append('<span id="' + i + '">' + value + '</span>');
 	}
+
+	$(document).keypress(function(event) {
+  		if(event.which === 13) {
+  			$(document).unbind("keypress");
+  			$(".start-button").click();
+  		}
+	});
 	
 	$(".start-button").click(function() {
 		$(".fancybox-wrap.start-wrap").hide(0, function() {
-			//game.start();
-			timer.finish();
+			game.start();
 		});
 	})
 	
@@ -141,16 +147,21 @@ $(function() {
 			if (name && phone && mail) {
 				io.postScore(name, phone, mail, points, function(data) {
 					$(".status-message").text("Informasjonen ble lagret.");
-					$(".status-message").addClass(".correct");
-					$(".status-message").show();
-					game.closeContactForm();
+					$(".status-message").addClass("status-message-success ");
+					$(".status-message").fadeIn(300, function() {
+						game.closeContactForm();
+					});
 				}, function(data) {
-					alert("Feil under lagring av inforasjon: " + data);
+					console.log("Feil under lagring av inforasjon: ");
+					console.log(data);
+					$(".status-message").text("Feil under lagring av informasjonen.");
+					$(".status-message").addClass("status-message-error");
+					$(".status-message").fadeIn(300);
 				});
 			} else {
 				$(".status-message").text("Ops, skriv inn all informasjon!");
 				$(".status-message").addClass("status-message-error");
-				$(".status-message").show();
+				$(".status-message").fadeIn(300);
 			}
 		}
 	});
