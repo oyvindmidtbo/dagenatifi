@@ -29,10 +29,14 @@ var game = (function() {
 			addCorrect(1);
 			moveToNextLetter();
 		} else {
+			$("body").effect().stop(true);
+			$("body").css("background-color", "#111");
 			$("body").effect("highlight", {
 				color: "#FD5157"
 			}, 300);
+
 			span.addClass("wrong");
+			//$("#soundHandle")[0].clearQueue();
 			$("#soundHandle")[0].play();
 			addWrong(1);
 		}
@@ -120,8 +124,8 @@ $(function() {
 	
 	$(".start-button").click(function() {
 		$(".fancybox-wrap.start-wrap").hide(0, function() {
-			//game.start();
-			timer.finish();
+			game.start();
+			//timer.finish();
 		});
 	})
 	
@@ -150,7 +154,6 @@ $(function() {
 			} else {
 				$(".status-message").text("Ops, skriv inn all informasjon!");
 				$(".status-message").addClass("status-message-error");
-				$(".status-message").show();
 			}
 		}
 	});
