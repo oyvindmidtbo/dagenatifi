@@ -24,8 +24,10 @@ var game = (function() {
 		var keyPressed = String.fromCharCode(keyEvent.which);
 
 		if (keyPressed === character) {
+			span.removeClass("wrong");
 			span.addClass("correct");
 			addCorrect(1);
+			moveToNextLetter();
 		} else {
 			$("body").effect("highlight", {
 				color: "#FD5157"
@@ -42,8 +44,6 @@ var game = (function() {
 				marginLeft: "-" + move + "px"
 			}, 800);
 		}
-
-		moveToNextLetter();
 	}
 
 	function moveToNextLetter() {
