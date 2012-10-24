@@ -36,7 +36,6 @@ var game = (function() {
 			}, 300);
 
 			span.addClass("wrong");
-			//$("#soundHandle")[0].clearQueue();
 			$("#soundHandle")[0].play();
 			addWrong(1);
 		}
@@ -140,6 +139,7 @@ $(function() {
 	})
 
 	$(".final-result").keypress(function(event) {
+		$(".status-message").slideUp(300);
 		var enterKeyCode = 13;
 		
 		if (event.which === enterKeyCode) {
@@ -150,18 +150,23 @@ $(function() {
 
 			if (name && phone && mail) {
 				io.postScore(name, phone, mail, points, function(data) {
-					game.closeContactForm();
+					$(".status-message").removeClass("status-message-error");
+					$(".status-message").text("Informasjonen ble lagret.");
+					$(".status-message").addClass("status-message-success");
+					$(".status-message").slideDown(300).delay(1000).slideUp(300, function() {
+						game.closeContactForm();
+					});
 				}, function(data) {
-					console.log("Feil under lagring av inforasjon: ");
+					console.log("Feil under lagring av informasjon: ");
 					console.log(data);
 					$(".status-message").text("Feil under lagring av informasjonen.");
 					$(".status-message").addClass("status-message-error");
-					$(".status-message").fadeIn(300);
+					$(".status-message").slideDown(300);
 				});
 			} else {
 				$(".status-message").text("Ops, skriv inn all informasjon!");
 				$(".status-message").addClass("status-message-error");
-				$(".status-message").fadeIn(300);
+				$(".status-message").slideDown(300);
 			}
 		}
 	});

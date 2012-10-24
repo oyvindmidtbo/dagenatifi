@@ -104,11 +104,11 @@ header {
 }
 
 .status-message-success {
-	color: #297f79;
+	background-color: #297f79;
 }
 
 .status-message-error {
-	color: #FD5157;
+	background-color: #FD5157;
 }
 
 .status-message {
@@ -116,6 +116,13 @@ header {
 	font-size: 30px;
 	display: none;
 	margin: 20px 0;
+	margin-top: -8px;
+	padding: 20px;
+	text-align: center;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	z-index: 300;
+	position: relative;
 }
 
 
