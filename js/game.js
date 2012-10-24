@@ -150,11 +150,7 @@ $(function() {
 
 			if (name && phone && mail) {
 				io.postScore(name, phone, mail, points, function(data) {
-					$(".status-message").text("Informasjonen ble lagret.");
-					$(".status-message").addClass("status-message-success ");
-					$(".status-message").fadeIn(300, function() {
-						game.closeContactForm();
-					});
+					game.closeContactForm();
 				}, function(data) {
 					console.log("Feil under lagring av inforasjon: ");
 					console.log(data);
