@@ -18,6 +18,7 @@ var game = (function() {
 	}
 	
 	function checkInputText(keyEvent) {
+		var prevMargin = 0;
 		var span = getNextSpan();
 		var character = getNextLetter();
 		var keyPressed = String.fromCharCode(keyEvent.which);
@@ -26,13 +27,19 @@ var game = (function() {
 			span.addClass("correct");
 			addCorrect(1);
 		} else {
+			$("body").effect("highlight", {
+				color: "#FD5157"
+			}, 300);
 			span.addClass("wrong");
+			$("#soundHandle")[0].play();
 			addWrong(1);
 		}
 
 		if (character === " ") { 
+			var move = (span.position().left - prevMargin)
+			prevMargin = span.position().left;
 			$(".text").animate({
-				marginLeft: "-=110px"
+				marginLeft: "-" + move + "px"
 			}, 800);
 		}
 

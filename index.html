@@ -6,77 +6,82 @@
 		<link rel="stylesheet" href="css/fonts.css" type="text/css" media="screen" charset="utf-8">
 		<link rel="stylesheet" href="css/main.css" type="text/css" media="screen" charset="utf-8">
 		<script type="text/javascript" src="js/external/jquery-1.8.2.js"></script>
+		<script type="text/javascript" src="js/external/jquery-ui-1.9.0.min.js"></script>
 		<script type="text/javascript" src="js/timer.js"></script>
 		<script type="text/javascript" src="js/data.js"></script>
 		<script type="text/javascript" src="js/game.js"></script>
 		<script type="text/javascript" src="js/io.js"></script>
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 	</head>
+	<body>
+	<audio id="soundHandle" style="display: none;">
+		<source src="sound/beep.mp3" type="audio/wav" />
+	</audio>
+	<div id="fancybox-overlay"></div>
+		<div class="container">
 	
-<div id="fancybox-overlay"></div>
-	<div class="container">
-	
-		<header class="clearfix">
-			<span class="logo"></span>
-			<div class="headline">
-				<!-- <div class="title">Skrivekonkurranse på dagen@ifi!</div> -->
-			</div>
-		</header>
-		
-		<section class="clock">
-			<h1>TID</h1>
-			<h1 id="secondsLeft">30,0</h1>
-		</section>
-		
-		<div class="fancybox-wrap final-result-wrap">
-			<section class="final-result">
-				<a href="#" class="final-result-close">close</a>
-				<div class="scoreline-wrap clearfix">
-					<div class="scoreline">
-						<span class="number" id="correct"></span>
-						<span class="label">riktig</span>
-					</div>
-					<div class="scoreline">
-						<span class="number" id="wrong"></span>
-						<span class="label">feil</span>
-					</div>
-					<div class="scoreline">
-						<span class="number" id="score"></span>
-						<span class="label">poeng</span>
-					</div>
+			<header class="clearfix">
+				<span class="logo"></span>
+				<div class="headline">
+					<!-- <div class="title">Skrivekonkurranse på dagen@ifi!</div> -->
 				</div>
-				
-				<p><input id="participantName" placeholder="Navn" type="text" name="name"/></p>
-				<p><input id="participantPhone" placeholder="Telefon" type="text" name="phone"/></p>
-				<p><input id="participantMail" placeholder="E-postadresse" type="text" name="email"/></p>
+			</header>
+		
+			<section class="clock">
+				<h1>TID</h1>
+				<h1 id="secondsLeft">30,0</h1>
 			</section>
-		</div>
+		
+			<div class="fancybox-wrap final-result-wrap">
+				<section class="final-result">
+					<a href="#" class="final-result-close">close</a>
+					<div class="scoreline-wrap clearfix">
+						<div class="scoreline">
+							<span class="number" id="correct"></span>
+							<span class="label">riktig</span>
+						</div>
+						<div class="scoreline">
+							<span class="number" id="wrong"></span>
+							<span class="label">feil</span>
+						</div>
+						<div class="scoreline">
+							<span class="number" id="score"></span>
+							<span class="label">poeng</span>
+						</div>
+					</div>
+				
+					<p><input id="participantName" placeholder="Navn" type="text" name="name"/></p>
+					<p><input id="participantPhone" placeholder="Telefon" type="text" name="phone"/></p>
+					<p><input id="participantMail" placeholder="E-postadresse" type="text" name="email"/></p>
+				</section>
+			</div>
 
-		<section class="content">
-			<div class="text"></div>
-		</section>
+			<section class="content">
+				<div class="text"></div>
+			</section>
 		
-		<section class="score">
-			<h1>POENG</h1>
-			<h1 class="total-score">0</h1>
-		</section>
+			<section class="score">
+				<h1>POENG</h1>
+				<h1 class="total-score">0</h1>
+			</section>
 		
-		<div class="fancybox-wrap start-wrap">
-				<a class="circle start-button">
-					<span>START</span>
-				</a>
-		</div>
+			<div class="fancybox-wrap start-wrap">
+					<a class="circle start-button">
+						<span>START</span>
+					</a>
+			</div>
 			
-		<div class="fancybox-wrap countdown-wrap">
-			<div class="countdown">
-				<span class="value"></span>
+			<div class="fancybox-wrap countdown-wrap">
+				<div class="countdown">
+					<span class="value"></span>
+				</div>
 			</div>
-		</div>
 		
-		<div class="fancybox-wrap finish-wrap">
-			<div class="circle finish">
-				<span>FERDIG</span>
+			<div class="fancybox-wrap finish-wrap">
+				<div class="circle finish">
+					<span>FERDIG</span>
+				</div>
 			</div>
 		</div>
-	</div>
+	</body>
 </html>
