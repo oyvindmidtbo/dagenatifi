@@ -9,7 +9,6 @@ var timer = (function() {
 							clearInterval(countdownToStart);
 							$(".countdown").hide();
 							$("#fancybox-overlay").hide();
-							start();
 							callback();
 						} else {
 				$(".value").text(secondsToStart);
@@ -22,6 +21,7 @@ var timer = (function() {
 	function start(callback) {
 		var countdown = setInterval(function() {
 			$("#secondsLeft").text(function() {
+				console.log(seconds);
 				if (seconds % 10 === 0) {
 					return seconds / 10 + ",0";
 				} else {
