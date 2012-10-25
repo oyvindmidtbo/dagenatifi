@@ -124,7 +124,9 @@ $(function() {
 		
 	var keyCode = event.keyCode;
 	
-	if (keyCode == 8) { 
+	if (keyCode == 8 &&
+		((event.target || event.srcElement).tagName != "TEXTAREA") && 
+		((event.target || event.srcElement).tagName != "INPUT")) { 
 		
 		if (navigator.userAgent.toLowerCase().indexOf("msie") == -1) {
 			event.stopPropagation();
