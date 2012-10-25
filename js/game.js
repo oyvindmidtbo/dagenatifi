@@ -112,9 +112,30 @@ var game = (function() {
 })();
 
 $(function() {
-	window.onbeforeunload = function(e) {
-		e.preventDefault(); // prevent the user from leaving the page
+	// window.onbeforeunload = function(e) {
+	// 	e.preventDefault(); // prevent the user from leaving the page
+	// }
+
+	window.onkeydown = function (event) {
+	
+	if (!event) { /* This will happen in IE */
+		event = window.event;
 	}
+		
+	var keyCode = event.keyCode;
+	
+	if (keyCode == 8) { 
+		
+		if (navigator.userAgent.toLowerCase().indexOf("msie") == -1) {
+			event.stopPropagation();
+		} else {
+			alert("prevented");
+			event.returnValue = false;
+		}
+		
+		return false;
+	}
+};	
 
 	for(var i in data.asArray()) {
 		var value = data.getValue(i);
