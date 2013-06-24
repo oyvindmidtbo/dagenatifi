@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Skrivekonkurranse på dagen@ifi</title>
+		<title>Skrivekonkurranse</title>
 		<link rel="stylesheet" href="css/fonts.css" type="text/css" media="screen" charset="utf-8">
 		<link rel="stylesheet" href="css/main.css" type="text/css" media="screen" charset="utf-8">
 		<script type="text/javascript" src="js/external/jquery-1.8.2.js"></script>
@@ -11,6 +11,7 @@
 		<script type="text/javascript" src="js/data.js"></script>
 		<script type="text/javascript" src="js/game.js"></script>
 		<script type="text/javascript" src="js/io.js"></script>
+		<script type="text/javascript" src="js/init.js"></script>
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 	</head>
 	<body>
@@ -23,9 +24,6 @@
 	
 			<header class="clearfix">
 				<span class="logo"></span>
-				<div class="headline">
-					<!-- <div class="title">Skrivekonkurranse på dagen@ifi!</div> -->
-				</div>
 			</header>
 		
 			<section class="clock">
@@ -33,31 +31,6 @@
 				<h1 id="secondsLeft">60,0</h1>
 			</section>
 		
-			<div class="fancybox-wrap final-result-wrap">
-				<section class="final-result">
-					
-					<a href="#" class="final-result-close">close</a>
-					<div class="scoreline-wrap clearfix">
-						<div class="scoreline">
-							<span class="number" id="correct"></span>
-							<span class="label">riktig</span>
-						</div>
-						<div class="scoreline">
-							<span class="number" id="wrong"></span>
-							<span class="label">feil</span>
-						</div>
-						<div class="scoreline">
-							<span class="number" id="score"></span>
-							<span class="label">poeng</span>
-						</div>
-					</div>
-					
-					<p><input id="participantName" placeholder="Navn" type="text" name="name"/></p>
-					<p><input id="participantPhone" placeholder="Telefonnummer" type="text" name="phone"/></p>
-					<p><input id="participantMail" placeholder="E-postadresse" type="text" name="email"/></p>
-				</section>
-			</div>
-
 			<section class="content">
 				<div class="text"></div>
 			</section>
@@ -83,6 +56,31 @@
 				<div class="circle finish">
 					<span>FERDIG</span>
 				</div>
+			</div>
+
+			<div class="fancybox-wrap final-result-wrap">
+				<section class="final-result">
+					
+					<a href="#" class="final-result-close">close</a>
+					<div class="scoreline-wrap clearfix">
+						<div class="scoreline">
+							<span class="number" id="correct"></span>
+							<span class="label">riktig</span>
+						</div>
+						<div class="scoreline">
+							<span class="number" id="wrong"></span>
+							<span class="label">feil</span>
+						</div>
+						<div class="scoreline">
+							<span class="number" id="score"></span>
+							<span class="label">poeng</span>
+						</div>
+					</div>
+					
+					<p><input id="participantName" placeholder="Navn" type="text" name="name"/></p>
+					<p><input id="participantPhone" placeholder="Telefonnummer" type="text" name="phone"/></p>
+					<p><input id="participantMail" placeholder="E-postadresse" type="text" name="email"/></p>
+				</section>
 			</div>
 		</div>
 	</body>
