@@ -75,12 +75,12 @@ function bindKeys() {
         }, function(data) {
           console.log("Feil under lagring av informasjon: ");
           console.log(data);
-          $(".status-message").text("Feil under lagring av informasjonen.");
+          $(".status-message").text("Feil under lagring av informasjon.");
           $(".status-message").addClass("status-message-error");
           $(".status-message").slideDown(300);
         });
       } else {
-        $(".status-message").text("Ops, skriv inn all informasjon!");
+        $(".status-message").text("Obs, skriv inn all informasjon!");
         $(".status-message").addClass("status-message-error");
         $(".status-message").slideDown(300);
       }
